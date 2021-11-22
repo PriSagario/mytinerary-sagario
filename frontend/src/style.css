@@ -1,0 +1,42 @@
+html * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 10px;
+    height: 10px;
+    color: tomato;
+    background-color: rgb(97, 253, 232);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.cardImg {
+width: 100% !important;
+height: 100%;
+}
+
+.allCards{
+    height: 60vh;
+    width: 80%;
+}
+
+.carouselComp{
+    background-color: red;
+    padding: 3rem;
+}
+
+.bodyOfCard{
+    background-color: pink;
+}
+
+.bg-image{
+    background-image: url(./assets/planeta.jpg);
+    height: 95vh;
+    object-fit: cover;
+    width: 100%;
+}
+

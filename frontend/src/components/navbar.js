@@ -1,69 +1,29 @@
-import React, { useState } from 'react'
-import user from '../assets/user.svg'
-import { NavLink, Link } from "react-router-dom";
-import { FiMenu } from 'react-icons/fi';
-import { FaHome, FaPaperPlane } from "react-icons/fa";
-import { BiCaretDown } from "react-icons/bi";
-import { connect } from 'react-redux';
-import userActions from '../Redux/actions/userActions';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React from 'react';
+import {Navbar, Container, NavDropdown, Nav} from 'react-bootstrap';
 
-
-
-function Navbar(props) {
-    const { loggedUser } = props
-    const [nav, setNav] = useState(true);
-    const [userlinks, setUserLinks] = useState(true)
-    const openNav = () => {
-        setNav(!nav)
-    }
-
-    const signOut = () => {
-        openNav()
-        toast.info('Hope to see you soon!')
-        props.signOut()
-        localStorage.clear()
-
-    }
-    return (
-        <nav>
-            <FiMenu className="burger" onClick={openNav} />
-            <div className={nav ? 'links' : 'links activeNav'}>
-                <div onClick={() => setUserLinks(!userlinks)} className="userLinksContainer">
-                    <div className="userPicture" style={{ backgroundImage: `url(${loggedUser ? loggedUser.response.userPicture : user})` }}></div>
-                    <div className={userlinks ? 'userLinks' : 'userLinks visible'}>
-                        {!loggedUser ? (
-                            <>
-                                <Link to='/signin' className="signInLinks" onClick={openNav}>Sign In</Link>
-                                <Link to='/signup' className="signInLinks" onClick={openNav}>Sign Up</Link>
-                            </>
-                        ) : (
-                            <Link to='/' className="signInLinks" onClick={signOut}>Sign Out</Link>
-                        )
-                        }
-                    </div>
-                    <BiCaretDown className="dropDown" />
-                    {loggedUser && 'Hi there, ' + loggedUser.response.firstName + '!'}
-                </div>
-                <div>
-                    <NavLink to="/" className="navLinks " exact={true} onClick={openNav}>
-                        <p><FaHome className="icons" /> Home</p>
-                    </NavLink>
-                    <NavLink to="/cities" className="navLinks" onClick={openNav}>
-                        <p><FaPaperPlane className="icons" /> Cities</p>
-                    </NavLink>
-                </div>
-            </div>
-        </nav>
-    )
+const NavBarP = () => {
+  let imageUsu = <img 
+  src= '../assets/usuario.jpg'
+  width="40"
+  height="40"
+  alt="User"
+  />
+  return (
+    <Navbar bg="light" expand="lg" className="p-4">
+      <Container>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <NavDropdown title={imageUsu} id="basic-nav-dropdown">
+              <NavDropdown.Item >Sign up</NavDropdown.Item>
+              <NavDropdown.Item >Sign in</NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link >Home</Nav.Link>
+            <Nav.Link >Cities</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
-const mapStateToProps = state => {
-    return {
-        loggedUser: state.userR.loggedUser
-    }
-}
-const mapDispatchToProps = {
-    signOut: userActions.signOut
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
+export default NavBarP
