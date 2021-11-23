@@ -1,5 +1,5 @@
 import React from "react"
-import NavBarP from '../components/NavBar'
+import NavBarP from '../components/navbar'
 import ActionCall from "../components/ActionCall"
 import  CarouselP from "../components/Carousel"
 import  FooterP from "../components/footer"
@@ -10,8 +10,10 @@ export default class Home extends React.Component{
         return (
          <div className= "bg-dark container-fluid">
          <NavBarP />
-         {/*<HeroP />*/}
+         <div  className="bg-image d-flex justify-content-center flex-column">
+         <HeroP />
          <ActionCall />
+         </div>
          <CarouselP />
          <FooterP />
 

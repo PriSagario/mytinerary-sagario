@@ -1,5 +1,6 @@
 import React from 'react';
 import {Navbar, Container, NavDropdown, Nav} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const NavBarP = () => {
   let imageUsu = <img 
@@ -18,8 +19,8 @@ const NavBarP = () => {
               <NavDropdown.Item >Sign up</NavDropdown.Item>
               <NavDropdown.Item >Sign in</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link >Home</Nav.Link>
-            <Nav.Link >Cities</Nav.Link>
+            <Nav.Link as={Link} to="/" >Home</Nav.Link>
+            <Nav.Link as={Link} to="/cities"> Cities</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

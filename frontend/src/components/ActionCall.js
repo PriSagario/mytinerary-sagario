@@ -1,18 +1,15 @@
-import React from 'react'
+import React from 'react';
+import {Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom'; 
 
 const ActionCall = () => {
-return (
-<div className= "bg-image d-flex justify-content-center flex-column">
-    <h2> MyTinerary </h2>
-    <p>
-        Find your perfect trip, designed by insiders with know and love their cities!
-    </p>
-    <div>
-        {/*el boton debe enviar a una pagina web vacia*/}
-        <button>View Destinations </button>
-    </div>
-</div>
-);
+    return (
+        <div>
+            <Button size="lg" as={Link} to="/cities" className="">
+                Choose destination now!
+            </Button>{" "}
+        </div>
+    );
 };
 
 export default ActionCall
