@@ -9,7 +9,7 @@ html * {
     width: 10px;
     height: 10px;
     color: tomato;
-    background-color: rgb(97, 253, 232);
+    background-color: rgb(124, 70, 0);
     padding: 20px;
     border-radius: 10px;
 }
@@ -20,23 +20,86 @@ height: 100%;
 }
 
 .allCards{
-    height: 60vh;
-    width: 80%;
+    height: 70vh;
+    width: 40vw;
 }
 
 .carouselComp{
-    background-color: red;
+    background-color: rgb(255, 168, 38);
     padding: 3rem;
 }
 
 .bodyOfCard{
-    background-color: pink;
+    background-color: rgb(252, 212, 113);
 }
 
 .bg-image{
-    background-image: url(./assets/planeta.jpg);
+    background-image: url(./assets/background.jpg);
     height: 95vh;
-    object-fit: cover;
     width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100vw 150vh;
 }
 
+.textHero{
+ color: rgb(0, 0, 0);
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+ font-size: 5vh;
+ font-weight: 400;
+ margin-bottom: 0;
+ text-align: center;
+ padding-top: 20vh;
+}
+
+.navbarCon{
+ padding-left: 60vw;
+}
+
+.navText{
+    font-size: 2vw;
+    
+}
+
+.colorText{
+color:rgb(0, 0, 0)
+}
+
+.carousel_title{
+    background-color: rgb(255, 230, 146);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    font-size: 3vw;
+}
+
+.colorBgNav{
+    background-color:rgb(255, 230, 146) ;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.linkText{
+    text-decoration: none;
+    padding: 0 2vw;
+    font-size: 2vw;
+    color:black;
+
+}
+
+.buttonText{
+    background-color: rgba(245, 179, 13, 0.795);
+    border-color: none;
+    color: black;
+}
+
+.buttonText:hover{
+    background-color: rgba(58, 236, 227, 0.678);
+}
+
+.textTin{
+    padding-top: 20vh;
+    font-size: 5vw;
+    
+}

@@ -12,7 +12,7 @@ const CarouselP = () => {
         ],
         [
             {city: "Bali", country: "Indonesia", image:"cityBali.jpg"},
-            {city: "Dubai", country: "Abu Dabi", image:"cityDubai.jpg"},
+            {city: "Dubai", country: "United Arab Emirates", image:"cityDubai.jpg"},
             {city: "Orlando", country: "United States", image:"cityOrlando.jpg"},
             {city: "Paris", country: "France", image:"cityParis.jpg"},
         ],
@@ -24,11 +24,7 @@ const CarouselP = () => {
         ],
     ]
 
-     /*<> {
-            allCities.map(arrayCity => arrayCity.map(city => console.log(city)))
-        } 
-        </>*/
-
+    
     return (
          <>
             <h2 className="carousel_title"> POPULAR ITINERARY</h2>
@@ -41,7 +37,7 @@ const CarouselP = () => {
                                     let allImages = `../assets/cities/${city.image}`
                                     return (
                                     <Col className= "d-flex justify-content-center">
-                                        <Card className="allCards">
+                                        <Card className="allCards cardPrueba">
                                             <Card.Img className= "cardImg" variant="top" src={allImages} />
                                             <Card.Body className= "bodyOfCard">
                                                 <Card.Title>{city.city}</Card.Title>
