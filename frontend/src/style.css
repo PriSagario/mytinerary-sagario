@@ -17,12 +17,21 @@ html * {
 .cardImg {
 width: 100% !important;
 height: 100%;
+object-fit: cover;
 }
+
 
 .allCards{
     height: 70vh;
     width: 40vw;
 }
+
+@media (max-width:1200px){
+    .allCards{
+        height: 40vh;
+        width: 70vw;
+    }
+    }
 
 .carouselComp{
     background-color: rgb(255, 168, 38);
@@ -38,7 +47,8 @@ height: 100%;
     height: 95vh;
     width: 100%;
     background-repeat: no-repeat;
-    background-size: 100vw 150vh;
+    background-size: cover;
+    
 }
 
 .textHero{
@@ -103,3 +113,12 @@ color:rgb(0, 0, 0)
     font-size: 5vw;
     
 }
+
+@media (max-width:990px){
+    .navText{
+        font-size: 2rem;
+    }
+    .linkText{
+        font-size: 1.5rem;
+    }
+    }
