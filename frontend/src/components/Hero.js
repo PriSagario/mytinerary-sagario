@@ -7,7 +7,7 @@ const HeroP = () => {
         <div className="textHero ">
             <h2 className="textTin"> MyTinerary </h2>
             <p>
-                Find your perfect trip, designed by insiders with know and love their cities!
+                Find your perfect trip, designed by insiders who know and love their cities!
             </p>
             <div>
             <Button size="lg" as={Link} to="/cities" className="buttonText">
