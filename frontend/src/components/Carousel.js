@@ -24,10 +24,10 @@ const CarouselP = () => {
         ],
     ]
 
-    
+
     return (
-         <>
-            <h2 className="carousel_title"> POPULAR ITINERARY</h2>
+        <>
+            <h2 className="carousel_title"> Popular MYtineraries</h2>
             <Carousel className="carouselComp">
                 {allCities.map((arrayCity) => {
                     return (
@@ -36,18 +36,19 @@ const CarouselP = () => {
                                 {arrayCity.map((city) => {
                                     let allImages = `../assets/cities/${city.image}`
                                     return (
-                                    <Col className= "d-flex justify-content-center">
-                                        <Card className="allCards cardPrueba">
-                                            <Card.Img className= "cardImg" variant="top" src={allImages} />
-                                            <Card.Body className= "bodyOfCard">
-                                                <Card.Title>{city.city}</Card.Title>
-                                                <Card.Text>
-                                                    {city.country}
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                )})}
+                                        <Col className="d-flex justify-content-center">
+                                            <Card className="allCards cardPrueba">
+                                                <Card.Img className="cardImg" variant="top" src={allImages} />
+                                                <Card.Body className="bodyOfCard">
+                                                    <Card.Title>{city.city}</Card.Title>
+                                                    <Card.Text>
+                                                     {city.country}
+                                                    </Card.Text>
+                                                </Card.Body>
+                                            </Card>
+                                        </Col>
+                                    )
+                                })}
                             </Row>
                         </Carousel.Item>
                     )
@@ -56,6 +57,6 @@ const CarouselP = () => {
             </Carousel>
         </>
     );
-}; 
+};
 
-export default CarouselP 
+export default CarouselP
