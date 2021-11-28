@@ -5,7 +5,11 @@ html * {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 
-.carousel-control-prev-icon,
+  .slick-track{
+      transform: none !important;
+  }
+
+/*.carousel-control-prev-icon,
 .carousel-control-next-icon {
     width: 10px;
     height: 10px;
@@ -19,23 +23,23 @@ html * {
 width: 100% !important;
 height: 70%;
 object-fit: cover;
-}
+}*/
 
 
-.allCards{
+/*.allCards{
     height: 50vh;
     width: 40vw;
-}
+}*/
 
 
-.carouselComp{
+/*.carouselComp{
     background-color: rgb(255, 168, 38);
     padding: 3rem;
 }
 
 .bodyOfCard{
     background-color: rgb(252, 212, 113);
-}
+}*/
 
 .bg-image{
     background-image: url(./assets/background.jpg);
@@ -86,14 +90,23 @@ display: flex;
 flex-direction: row;
 }
 
+/*.conteinerSlider{
+    height: 100%;
+}*/
+
+/*.imgSlider{
+    height: 30vh;
+    width: 40vw;
+}
+
 .carousel_title{
     background-color: rgb(255, 230, 146);
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     justify-content: center;
     font-size: 3vw;
     font-style: normal;
-}
+}*/
 
 .colorBgNav{
     background-color:rgb(255, 230, 146) ;
@@ -102,11 +115,15 @@ flex-direction: row;
 }
 
 .linkText{
+    font-size: 1.5vw;
+    color:black;
+}
+
+.fooText{
     text-decoration: none;
     padding: 0 2vw;
     font-size: 2vw;
     color:black;
-
 }
 
 .buttonText{
@@ -149,7 +166,7 @@ flex-direction: row;
     .navText{
         font-size: 2rem;
     }
-    .linkText{
+    .fooText{
         font-size: 1.5rem;
     }
     .textOnly{
@@ -166,13 +183,14 @@ flex-direction: row;
         .textFrase{
             font-size: 6vw;
         }
-        .carousel_title{
-            font-size: 5vw;
-        }
         .textOnly{
             font-size: 6vw;
-        }.buttonText{
+        }
+        .buttonText{
             font-size: 4vw;
+        }
+        .linkText{
+            font-size: 3vw;
         }
     }
 
@@ -183,16 +201,13 @@ flex-direction: row;
         .textFrase{
             font-size: 8vw;
         }
-        .carousel_title{
-            font-size: 6vw;
-        }
 
     }
 
-    @media (max-width:1200px){
+    /*@media (max-width:1200px){
         .allCards{
             height: 40vh;
             width: 70vw;
         }
         
-        }
+        }*/

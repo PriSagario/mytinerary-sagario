@@ -1,8 +1,8 @@
 import React from "react"
 import NavBarP from '../components/Navbar'
-import  CarouselP from "../components/Carousel"
 import  FooterP from "../components/footer"
 import  HeroP from "../components/Hero"
+import MultipleRows from "../components/MultipleRows"
 
 export default class Home extends React.Component{
     render(){
@@ -12,8 +12,9 @@ export default class Home extends React.Component{
          <div  className="bg-image d-flex justify-content-center flex-column">
          <HeroP />
          </div>
-         <CarouselP />
+         <MultipleRows/>
          <FooterP />
+         
 
 
         </div>

@@ -10,12 +10,12 @@ const NavBarP = () => {
   alt="User"
   />
 
-  let imageLogo = <img 
+  /*let imageLogo = <img 
   src= '../assets/logo.png'
   width="100"
   height="100"
   alt="User"
-  />
+  />*/
 
   return (
     <Navbar variant= "light" expand="lg" className="p-1 colorBgNav">

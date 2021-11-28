@@ -15,8 +15,8 @@ const FooterP = () => {
         <footer className="siteHeader p-3 colorBgNav">
             <Container className="footer">
             <div>
-                <Link className="linkText" to= "/"> Home </Link>
-                <Link className="linkText" to= "/cities"> Cities </Link>
+                <Link className="fooText" to= "/"> Home </Link>
+                <Link className="fooText" to= "/cities"> Cities </Link>
             </div> 
             <div>
               {imgSocial}  

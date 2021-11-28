@@ -1,22 +1,17 @@
+/*require('dotenv').config()*/
+const Router = require ("./routes/routes")
 const express = require ("express")
-
-const ciudades=[]
-
 const cors = require ("cors")
+/*require ('/congif/database')*/
 
 const app = express ()
+
 app.use(cors())
+app.use(express.json())
+app.use("/api", Router)
 
-app.get("/pruebas/datos",(req,res)=>{
-    console.log("Me llego un pedido GET")
-    res.json({respuesta: "olakease"})
+
+app.listen(4000, ()=>{
+    console.log("Se levanto el server")
 })
-
-app.get("/api/ciudades",(req,res)=>{
-    console.log("Me llego un pedido GET")
-    res.json({respuesta: "olakease"})
-
-})
-
-app.listen(4000, ()=>{console.log("Server is listening on port 4000")})
 
