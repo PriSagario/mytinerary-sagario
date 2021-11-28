@@ -1,8 +1,8 @@
-/*require('dotenv').config()*/
-const Router = require ("./routes/routes")
+require("dotenv").config()
 const express = require ("express")
 const cors = require ("cors")
-/*require ('/congif/database')*/
+const Router = require ("./routes/routes")
+require ("./config/database")
 
 const app = express ()
 

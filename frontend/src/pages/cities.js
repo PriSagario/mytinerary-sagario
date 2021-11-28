@@ -10,7 +10,9 @@ export default class Cities extends React.Component{
             <div className="backCities">
          <div className= "bg-light container-fluid">
          <NavBarP />
+         <div  className="bg-cities d-flex justify-content-center flex-column">
          <h1 className="citiesTitle">Cities</h1>
+         </div>
          <CardCities/>
          <FooterP />
         </div>

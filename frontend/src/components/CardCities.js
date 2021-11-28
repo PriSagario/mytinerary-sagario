@@ -1,33 +1,49 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import '../pages/cities'
-import {Link, useParams} from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
-function CardCities () {
-   const [ciudades, setCiudades] = useState([])
-   const params = useParams()
+function CardCities() {
+    const [ciudades, setCiudades] = useState([])
+    const params = useParams()
+    const [search, setSearch] = useState([])
 
-    useEffect(()=>{
-        fetch ("http://localhost:4000/api/cities")
-       .then (res => res.json())
-       .then (data => setCiudades(data.response.ciudades))
-       .catch(err => console.log(err.message))
+    useEffect(() => {
+        fetch("http://localhost:4000/api/cities")
+            .then(res => res.json())
+            .then(data => setCiudades(data.response))
+            .catch(err => console.log(err.message))
     }, [])
 
-    return(
+    const filter = ciudades.filter((city) =>
+        city.name.toLowerCase().startsWith(search)
+    )
+
+    return (
         <div>
+            <input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                type="text"
+                id="header-search"
+                placeholder="Search a City"
+                name="s"
+            />
             <div className="contenedor-ciudades">
                 <div className="card-ciudad">
-                    {ciudades.map(ciudad => {
+
+                    {filter.length > 0 ? (filter.map(ciudad => {
+
                         return (
-                            <Link to={`/city/${ciudad.id}`}>
-                            <div className="card-imagen">
-                            <img className="imagen" key={ciudad.id} alt={ciudad.name} src={ciudad.src} />
-                            <p>{ciudad.name}</p>
-                            </div>
-                            </Link> 
+                            <Link to={`/city/${ciudad._id}`} className="linkCity">
+                                <div className="card-imagen">
+                                    <img className="imagen" key={ciudad._id} alt={ciudad.name} src={ciudad.src} />
+                                    <p className="nameCity">{ciudad.name}</p>
+                                </div>
+                            </Link>
                         )
                     }
-                    )}
+                    )) : (<h1>No cities available for your search</h1>)
+                    }
                 </div>
             </div>
         </div>

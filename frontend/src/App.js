@@ -4,6 +4,8 @@ import React from 'react';
 import Home from "./pages/home";
 import Cities from "./pages/cities";
 import City from './pages/city'
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 export default class App extends React.Component {
   render() {

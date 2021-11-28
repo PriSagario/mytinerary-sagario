@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import {Card, Container} from "react-bootstrap";
+import "slick-carousel/slick/slick.css"
 
 export default function MultipleRows() {
 
@@ -9,22 +10,24 @@ export default function MultipleRows() {
   useEffect(() => {
     fetch("http://localhost:4000/api/cities")
       .then((res) => res.json())
-      .then((data) => setciudades(data.response.ciudades))
+      .then((data) => setciudades(data.response))
       .catch((err) => err.message);
   }, []);
 
   const settings = {
-        className: "center",
-        centerMode: false,
-        infinite: true,
-        slidesToShow: 1,
-        speed: 900,
-        rows: 2,
-        slidesPerRow: 2,
-        autoplay: true,
-        autoplaySpeed: 2000,
-    
-        responsive: [
+    className: "center",
+    centerMode: false,
+    infinite: true,
+    centerPadding: "5px",
+    slidesToShow: 1,
+    speed: 500,
+    rows: 2,
+    slidesPerRow: 2,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    dots: true,
+    pauseOnHover: true,
+    responsive: [
       {
         breakpoint: 800,
         settings: {
@@ -47,9 +50,8 @@ export default function MultipleRows() {
                 {ciudades.map((city, index) => {
                     return (
                         <div key={index} className="tarjetass">
-                            <a href="/cities">
                             <Card className="mt-2 tarjeta">
-                                <Card.Img
+                                <Card.Img className="tarjeta-img"
                                     variant="top"
                                     src={city.src}
                                 />
@@ -59,7 +61,6 @@ export default function MultipleRows() {
                                     </Card.Title>
                                 </Card.Body>
                             </Card>
-                            </a>
                         </div>
                     );
                 })}
