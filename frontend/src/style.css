@@ -54,7 +54,7 @@ html * {
  .backCities{
      text-decoration: none;
      font-size: 1rem;
-     margin: 1rem;
+     margin: 2rem;
      color:black;
     box-sizing: border-box;
     border: solid 2px rgb(243, 106, 15);
@@ -77,12 +77,13 @@ html * {
  }
 
  .imgOnly{
-    width: 40%;
+    width: 50%;
     height: 45vh;
    margin: 1rem;
    box-sizing: border-box;
    border-radius: 1rem;
    object-fit: cover;
+   
  }
 
 .card-ciudad{
@@ -107,6 +108,7 @@ html * {
 
  .underConst{
      margin: 1rem;
+    
  }
 
 .popular{
@@ -139,6 +141,7 @@ html * {
 
 .bgCity{
     background-color:rgb(226, 214, 190) ;
+    
 }
 
 .textHero{
@@ -293,6 +296,9 @@ flex-direction: row;
     }.buttonText{
         font-size: 3vw;
     }
+    .imgOnly{
+        width: 60%;
+        }
     }
 
     @media (max-width:750px){
@@ -311,6 +317,15 @@ flex-direction: row;
         .linkText{
             font-size: 3vw;
         }
+       .imagen{
+        width: 30vw;
+        }
+        .card-imagen{
+            width: 30vw;
+            }
+       .nameCity{
+                font-size: 3vw;
+        }
     }
 
     @media (max-width:450px){
@@ -320,6 +335,9 @@ flex-direction: row;
         .textFrase{
             font-size: 8vw;
         }
+        .imgOnly{
+            width: 90%;
+            }
 
     }
 
@@ -327,5 +345,26 @@ flex-direction: row;
         .contenedorSlider{
         height: 180vh;
         }
-        
+        .imgOnly{
+        width: 70%;
         }
+        }
+
+    @media (max-width:599px){
+        .card-ciudad{
+            display: flex;
+            flex-direction: column;
+        }
+        .imagen{
+            width: 50vw;
+        }
+        .card-imagen{
+            width: 50vw;
+        }
+        .nameCity{
+            font-size: 4vw;
+        }  
+        .imgOnly{
+        width: 70%;
+        }
+    }

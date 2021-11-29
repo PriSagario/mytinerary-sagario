@@ -15,18 +15,18 @@ export default function City() {
     }, [])
     return (
         <div className="bgCity">
-        <div className="main">
+        <div className="mainCity">
             <NavBarP />
         <div className="cityImg">
         <img className="imgOnly" key={ciudad._id} alt={ciudad.name} src={`../${ciudad.src}`} />
         
         </div>
         <div className="cityConteiner">
-        <h1 className="nameCity">{ciudad.name}, {ciudad.country}</h1>
+        <h1 className="countryTitle">{ciudad.name}, {ciudad.country}</h1>
         <p className="descriptionCity">{ciudad.description}</p>
-         <h2 className="underConst">Under construction</h2>
-         <Link to="/cities" className="backCities">Back to Cities</Link>
         </div>
+         <Link to="/cities" className="backCities"> Back to Cities</Link>
+         <h2 className="underConst">Under construction</h2>
         <FooterP />
         </div>
         </div>
