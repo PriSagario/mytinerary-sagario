@@ -26,24 +26,54 @@ html * {
  .imagen{
      height: 25vh;
      width: 25vw;
-     margin: 1rem;
      box-sizing: border-box;
-     border-radius: 10px 10px;
+     border-radius: 10px;
      object-fit: cover;
+     display: flex;
+     justify-content: center;
+     align-items:baseline;
      
  }
  .card-imagen{
      height: 35vh;
-     width: 28vw;
+     width: 25vw;
      margin: 2rem;
-     margin-top: 3rem;
      background-color: rgba(245, 179, 13, 0.795);
-     border: 1px solid black;
     box-sizing: border-box;
     border-radius: 1rem;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .card-imagen:hover{
+     background-color: rgb(255, 94, 0);
+ }
+
+ .backCities{
+     text-decoration: none;
+     font-size: 1rem;
+     margin: 1rem;
+     color:black;
+    box-sizing: border-box;
+    border: solid 2px rgb(243, 106, 15);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(255, 173, 21, 0.507);
+ }
+
+ .backCities:hover{
+     background-color: rgb(255, 94, 0);
+ }
+
+ .textErr{
+     margin: 2rem;
+     box-sizing: border-box;
+     border: solid 1px black;
+     border-radius: 10px;
+     padding: 8px;
+     background-color: rgba(243, 187, 82, 0.507);
  }
 
  .imgOnly{
@@ -59,6 +89,7 @@ html * {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
 }
 
  .citiesTitle{
@@ -71,39 +102,31 @@ html * {
      font-size: 2vw;
      text-decoration: none;
      color:black;
+
  }
 
-/*.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    width: 10px;
-    height: 10px;
-    color: tomato;
-    background-color: rgb(124, 70, 0);
-    padding: 20px;
-    border-radius: 10px;
+ .underConst{
+     margin: 1rem;
+ }
+
+.popular{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
 }
 
-.cardImg {
-width: 100% !important;
-height: 70%;
-object-fit: cover;
-}*/
-
-
-/*.allCards{
-    height: 50vh;
-    width: 40vw;
-}*/
-
-
-/*.carouselComp{
-    background-color: rgb(255, 168, 38);
-    padding: 3rem;
+.pageCities{
+    background-color: rgb(226, 214, 190);
 }
 
-.bodyOfCard{
-    background-color: rgb(252, 212, 113);
-}*/
+.pagePad{
+    padding: 10px;
+}
+
+.searcher{
+    display: flex;
+    justify-content: center;
+}
 
 .bg-image{
     background-image: url(./assets/background.jpg);
@@ -112,6 +135,10 @@ object-fit: cover;
     background-repeat: no-repeat;
     background-size: cover;
     
+}
+
+.bgCity{
+    background-color:rgb(226, 214, 190) ;
 }
 
 .textHero{
@@ -184,7 +211,7 @@ flex-direction: row;
 }
 
 .cityConteiner{
-    margin: 1rem 2rem;
+    margin: 2rem;
 }
 
 .linkCity{
@@ -240,7 +267,6 @@ flex-direction: row;
 
 .inputFilter{
     padding: 5px;
-    margin: 10px;
     display: flex;
     width: 40vw;
     border: 1px solid  rgba(245, 179, 13, 0.795);
@@ -297,10 +323,9 @@ flex-direction: row;
 
     }
 
-    /*@media (max-width:1200px){
-        .allCards{
-            height: 40vh;
-            width: 70vw;
+    @media (max-width:799px){
+        .contenedorSlider{
+        height: 180vh;
         }
         
-        }*/
+        }

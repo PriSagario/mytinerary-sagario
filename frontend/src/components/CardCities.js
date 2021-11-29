@@ -20,7 +20,9 @@ function CardCities() {
     )
 
     return (
-        <div>
+        <div className="pageCities ">
+        <div className="pagePad ">
+            <div className="searcher">
             <input className="inputFilter"
                 value={search}
                 onChange={(e) => {
@@ -32,6 +34,7 @@ function CardCities() {
                 placeholder="Search a City"
                 name="s"
             />
+            </div>
             <div className="contenedor-ciudades">
                 <div className="card-ciudad">
 
@@ -46,10 +49,11 @@ function CardCities() {
                             </Link>
                         )
                     }
-                    )) : (<h1>No cities available for your search</h1>)
+                    )) : (<h1 className="textErr">No cities available for your search</h1>)
                     }
                 </div>
             </div>
+        </div>
         </div>
     )
 }

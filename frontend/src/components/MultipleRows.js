@@ -44,7 +44,7 @@ export default function MultipleRows() {
 
   return (
     <div className="contenedorSlider">
-      <h1 className="Popular">Popular MyTineraries</h1>
+      <h1 className="popular">Popular MyTineraries</h1>
       <Container>
       <Slider {...settings} >
                 {ciudades.map((city, index) => {

@@ -14,6 +14,7 @@ export default function City() {
             .catch(err => console.log(err.message))
     }, [])
     return (
+        <div className="bgCity">
         <div className="main">
             <NavBarP />
         <div className="cityImg">
@@ -21,12 +22,13 @@ export default function City() {
         
         </div>
         <div className="cityConteiner">
-        <p className="nameCity">{ciudad.name}</p>
+        <h1 className="nameCity">{ciudad.name}, {ciudad.country}</h1>
         <p className="descriptionCity">{ciudad.description}</p>
-        <Link to="/cities">Back to Cities</Link>
-         <h1>Under construction</h1>
+         <h2 className="underConst">Under construction</h2>
+         <Link to="/cities" className="backCities">Back to Cities</Link>
         </div>
         <FooterP />
+        </div>
         </div>
     )
 }
