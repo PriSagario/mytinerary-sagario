@@ -3,11 +3,15 @@ const citiesController = require("../controllers/citiesController")
 
 
 Router.route('/cities')
-.get(citiesController.readCities).post(citiesController.createCity)
-.post(cityController.loadCities)
+.get(citiesController.readCities)
+.post(citiesController.createCity)
+.delete(citiesController.deleteCity)
+.put(citiesController.modifyCity)
 
 Router.route('/city/:id')
 .get(citiesController.readCity)
-.put(cityController.modifyCities)
+.post(citiesController.createCity)
+.delete(citiesController.deleteCity)
+.put(citiesController.modifyCity)
 
 module.exports = Router

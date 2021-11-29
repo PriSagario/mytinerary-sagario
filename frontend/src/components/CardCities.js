@@ -6,6 +6,7 @@ function CardCities() {
     const [ciudades, setCiudades] = useState([])
     const params = useParams()
     const [search, setSearch] = useState([])
+    const [min, setMin] = useState([])
 
     useEffect(() => {
         fetch("http://localhost:4000/api/cities")
@@ -15,14 +16,17 @@ function CardCities() {
     }, [])
 
     const filter = ciudades.filter((city) =>
-        city.name.toLowerCase().startsWith(search)
+        city.name.toLowerCase().startsWith(min)
     )
 
     return (
         <div>
-            <input
+            <input className="inputFilter"
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => {
+                setMin(e.target.value.toLowerCase().trimStart().trimEnd())
+                setSearch(e.target.value)
+                }}
                 type="text"
                 id="header-search"
                 placeholder="Search a City"

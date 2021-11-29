@@ -16,12 +16,13 @@ export default function City() {
     return (
         <div className="main">
             <NavBarP />
-        <div className="card-imagen">
-        <img className="imagen" key={ciudad._id} alt={ciudad.name} src={`../${ciudad.src}`} />
+        <div className="cityImg">
+        <img className="imgOnly" key={ciudad._id} alt={ciudad.name} src={`../${ciudad.src}`} />
+        
+        </div>
+        <div className="cityConteiner">
         <p className="nameCity">{ciudad.name}</p>
         <p className="descriptionCity">{ciudad.description}</p>
-        </div>
-        <div>
         <Link to="/cities">Back to Cities</Link>
          <h1>Under construction</h1>
         </div>

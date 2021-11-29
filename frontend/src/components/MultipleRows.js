@@ -18,7 +18,7 @@ export default function MultipleRows() {
     className: "center",
     centerMode: false,
     infinite: true,
-    centerPadding: "5px",
+    centerPadding: "20px",
     slidesToShow: 1,
     speed: 500,
     rows: 2,
@@ -56,7 +56,7 @@ export default function MultipleRows() {
                                     src={city.src}
                                 />
                                 <Card.Body>
-                                    <Card.Title>
+                                    <Card.Title className="titleMR">
                                         {city.name}
                                     </Card.Title>
                                 </Card.Body>
@@ -65,25 +65,6 @@ export default function MultipleRows() {
                     );
                 })}
             </Slider>
-            {/*<Slider {...settings}>
-        {ciudades.map((city, index) =>{
-          return(
-        
-          <Card key={index} border="dark" className="text-white card2">
-            <Card.Img className="card-img imgSlider" src={city.src} alt={city.name} />
-            <Card.ImgOverlay>
-              <Card.Title className="txt-dark txt-title">
-                {city.name}
-              </Card.Title>
-              <Card.Text className="txt-dark txt-description txt-center">
-                {city.description}
-              </Card.Text>
-            </Card.ImgOverlay>
-          </Card>
-          
-          )
-        })}
-      </Slider>*/}
       </Container >
     </div>
   );

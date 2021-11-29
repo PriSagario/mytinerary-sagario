@@ -40,6 +40,28 @@ const citiesController = {
      })
     },
 
+    deleteCity: async (req,res) =>{
+        const id = req.params
+        try{
+          await City.findOneAndDelete({_id:id})
+        }catch(error){
+          console.log(error)
+        }
+        res.json({success:true})
+      },
+      
+      modifyCity: async(req,res) => {
+        let id =req.params.id
+        let city = req.body
+        let actualizado
+        try{
+          actualizado = await City.findOneAndUpdate({_id:id}, {...city}, {new:true})
+        }catch(error){
+          console.log(error)
+        }
+        res.json({success:actualizado ? true : false})
+      }
+
 }
 
 module.exports = citiesController

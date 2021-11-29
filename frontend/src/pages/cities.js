@@ -7,8 +7,8 @@ import  FooterP from "../components/footer"
 export default class Cities extends React.Component{
     render(){
         return (
-            <div className="backCities">
-         <div className= "bg-light container-fluid">
+            <div className="backgroundCities">
+         <div className= "bg-light">
          <NavBarP />
          <div  className="bg-cities d-flex justify-content-center flex-column">
          <h1 className="citiesTitle">Cities</h1>
