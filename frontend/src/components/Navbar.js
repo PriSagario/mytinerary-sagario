@@ -18,7 +18,7 @@ const NavBarP = () => {
   />*/
 
   return (
-    <Navbar variant= "light" expand="lg" className="p-1 colorBgNav">
+    <Navbar expand="lg" className="p-1 colorBgNav">
       <Container>
         {/*<div className="logoText"><h2>MyTinerary</h2>{imageLogo}</div>*/}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

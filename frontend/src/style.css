@@ -31,9 +31,9 @@ html * {
      object-fit: cover;
      display: flex;
      justify-content: center;
-     align-items:baseline;
-     
+     align-items:baseline;     
  }
+
  .card-imagen{
      height: 35vh;
      width: 25vw;
@@ -222,9 +222,10 @@ flex-direction: row;
 }
 
 .colorBgNav{
-    background-color:rgb(255, 230, 146) ;
-    display: flex;
-    justify-content: space-evenly;
+   background: rgb(180,144,58);
+   background: linear-gradient(90deg, rgba(180,144,58,1) 0%, rgba(253,164,29,1) 41%, rgba(253,156,29,1) 59%, rgba(252,195,69,1) 100%);
+   display: flex;
+   justify-content: space-evenly;
 }
 
 .linkText{

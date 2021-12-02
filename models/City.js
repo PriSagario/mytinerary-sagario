@@ -4,7 +4,11 @@ const ciudadSchema = new mongoose.Schema({
   name: {type: String, required: true},
   src: {type: String, required: true},
   description: {type: String},
-  country: {type: String, required: true}
+  country: {type: String, required: true},
+ /*  itineraries: [
+    itineraryId: {type: mongoose.Types.objectId, }
+  
+] */
 })
 
 const City = mongoose.model('city',ciudadSchema)

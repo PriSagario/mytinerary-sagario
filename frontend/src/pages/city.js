@@ -1,7 +1,9 @@
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import NavBarP from '../components/Navbar'
-import FooterP from '../components/footer'
+import FooterP from '../components/Footer'
+import Itinerary from '../components/Itinerary'
+
 
 export default function City() {
     const [ciudad, setCiudad] = useState([])
@@ -25,6 +27,7 @@ export default function City() {
         <h1 className="countryTitle">{ciudad.name}, {ciudad.country}</h1>
         <p className="descriptionCity">{ciudad.description}</p>
         </div>
+        <Itinerary/>
          <Link to="/cities" className="backCities"> Back to Cities</Link>
          <h2 className="underConst">Under construction</h2>
         <FooterP />

@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import {Card, Container} from "react-bootstrap";
-import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick.css";
+import {connect} from 'react-redux';
+import citiesActions from "../redux/actions/citiesActions";
 
-export default function MultipleRows() {
-
-  const [ciudades, setciudades] = useState([]);
-
+function MultipleRows(props) {
   useEffect(() => {
-    fetch("http://localhost:4000/api/cities")
-      .then((res) => res.json())
-      .then((data) => setciudades(data.response))
-      .catch((err) => err.message);
-  }, []);
+    props.getCities();
+  }, [])
 
   const settings = {
     className: "center",
@@ -47,7 +43,8 @@ export default function MultipleRows() {
       <h1 className="popular">Popular MyTineraries</h1>
       <Container>
       <Slider {...settings} >
-                {ciudades.map((city, index) => {
+                {props.cities.length > 0 && props.cities.map((city, index) => {
+                  if (index<12){
                     return (
                         <div key={index} className="tarjetass">
                             <Card className="mt-2 tarjeta">
@@ -63,9 +60,23 @@ export default function MultipleRows() {
                             </Card>
                         </div>
                     );
+                  }
                 })}
             </Slider>
       </Container >
     </div>
   );
 }
+
+const mapDispatchToProps = {
+   getCities: citiesActions.getCities
+}
+
+const mapStateToProps = (state) => {
+  return {
+    cities: state.citiesReducer.cities,
+}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)
+  (MultipleRows);

@@ -5,8 +5,6 @@ const citiesController = require("../controllers/citiesController")
 Router.route('/cities')
 .get(citiesController.readCities)
 .post(citiesController.createCity)
-.delete(citiesController.deleteCity)
-.put(citiesController.modifyCity)
 
 Router.route('/city/:id')
 .get(citiesController.readCity)

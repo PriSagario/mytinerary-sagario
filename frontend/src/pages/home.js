@@ -1,6 +1,6 @@
 import React from "react"
 import NavBarP from '../components/Navbar'
-import  FooterP from "../components/footer"
+import  FooterP from "../components/Footer"
 import  HeroP from "../components/Hero"
 import MultipleRows from "../components/MultipleRows"
 

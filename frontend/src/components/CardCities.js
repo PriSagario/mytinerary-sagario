@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import '../pages/cities'
-import { Link, useParams } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
 function CardCities() {
     const [ciudades, setCiudades] = useState([])
-    const params = useParams()
     const [search, setSearch] = useState([])
-    const [min, setMin] = useState([])
 
     useEffect(() => {
         fetch("http://localhost:4000/api/cities")
@@ -16,7 +14,7 @@ function CardCities() {
     }, [])
 
     const filter = ciudades.filter((city) =>
-        city.name.toLowerCase().startsWith(min)
+        city.name.toLowerCase().startsWith(search)
     )
 
     return (
@@ -26,8 +24,7 @@ function CardCities() {
             <input className="inputFilter"
                 value={search}
                 onChange={(e) => {
-                setMin(e.target.value.toLowerCase().trimStart().trimEnd())
-                setSearch(e.target.value)
+                setSearch(e.target.value.toLowerCase().trimStart().trimEnd())
                 }}
                 type="text"
                 id="header-search"
