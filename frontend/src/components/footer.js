@@ -12,7 +12,7 @@ const FooterP = () => {
   />
 
     return (
-        <footer className="siteHeader p-3 colorBgNav">
+        <footer className="siteHeader p-3 colorFooter">
             <Container className="footer">
             <div>
                 <Link className="fooText" to= "/"> Home </Link>

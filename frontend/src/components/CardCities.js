@@ -1,31 +1,18 @@
-import React, { useEffect, useState } from 'react'
 import '../pages/cities'
 import { Link} from 'react-router-dom'
+import citiesActions from '../redux/actions/citiesActions'
+import {connect} from 'react-redux'
 
-function CardCities() {
-    const [ciudades, setCiudades] = useState([])
-    const [search, setSearch] = useState([])
-
-    useEffect(() => {
-        fetch("http://localhost:4000/api/cities")
-            .then(res => res.json())
-            .then(data => setCiudades(data.response))
-            .catch(err => console.log(err.message))
-    }, [])
-
-    const filter = ciudades.filter((city) =>
-        city.name.toLowerCase().startsWith(search)
-    )
-
+function CardCities(props) {
+    !props.cities[0] && props.getCities()
     return (
         <div className="pageCities ">
         <div className="pagePad ">
             <div className="searcher">
             <input className="inputFilter"
-                value={search}
-                onChange={(e) => {
-                setSearch(e.target.value.toLowerCase().trimStart().trimEnd())
-                }}
+                onChange={(e) => 
+                props.filterCities(props.cities, e.target.value.toLowerCase().trimStart().trimEnd())
+                }
                 type="text"
                 id="header-search"
                 placeholder="Search a City"
@@ -35,8 +22,8 @@ function CardCities() {
             <div className="contenedor-ciudades">
                 <div className="card-ciudad">
 
-                    {filter.length > 0 ? (filter.map(ciudad => {
-
+                     {props.auxiliar.length > 0 ? (
+                        props.auxiliar.map(ciudad => {
                         return (
                             <Link to={`/city/${ciudad._id}`} className="linkCity">
                                 <div className="card-imagen">
@@ -47,7 +34,7 @@ function CardCities() {
                         )
                     }
                     )) : (<h1 className="textErr">No cities available for your search</h1>)
-                    }
+                }
                 </div>
             </div>
         </div>
@@ -55,4 +42,16 @@ function CardCities() {
     )
 }
 
-export default CardCities
+const mapDispatchToProps = {
+    filterCities: citiesActions.filterCities,
+    getCities: citiesActions.getCities,
+}
+
+const mapStateToProps = (state) => {
+    return {
+        auxiliar: state.citiesReducer.auxiliar,
+        cities: state.citiesReducer.cities,
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardCities)

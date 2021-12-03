@@ -13,13 +13,23 @@ const citiesReducer = (state = initialState, action) => {
                 cities: action.payload,
                 auxiliar: action.payload,
             }
-        case 'GET_A_CITIES':
+
+        case "GET_A_CITY": 
+        const city = action.payload.cities.find(city => city._id === action.payload.id)
+        return {
+            ...state,
+            auxiliar: city,
+        }    
+        
+        case "FILTER_CITIES":
+            const filtered = action.payload.cities.filter((city => 
+                city.name.toLowerCase().startsWith(action.payload.value.toLowerCase())))
             return {
                 ...state,
-                cities: action.payload,
+                auxiliar: filtered,
             }
-            default: return state
-                
+        default: return state
+
     }
 }
 

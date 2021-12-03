@@ -7,7 +7,7 @@ html * {
 
   .bg-cities{
     background-image: url(./assets/backCities.jpg);
-    height: 45vh;
+    height: 70vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -77,13 +77,10 @@ html * {
  }
 
  .imgOnly{
-    width: 50%;
-    height: 45vh;
-   margin: 1rem;
-   box-sizing: border-box;
-   border-radius: 1rem;
+    width: 100%;
+    height: 60vh;
    object-fit: cover;
-   
+   background-repeat: no-repeat;
  }
 
 .card-ciudad{
@@ -96,6 +93,9 @@ html * {
  .citiesTitle{
      font-size: 5vw;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     
  }
 
@@ -132,7 +132,7 @@ html * {
 
 .bg-image{
     background-image: url(./assets/background.jpg);
-    height: 95vh;
+    height: 118vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -140,7 +140,8 @@ html * {
 }
 
 .bgCity{
-    background-color:rgb(226, 214, 190) ;
+    background: rgb(250,255,163);
+background: linear-gradient(90deg, rgba(250,255,163,1) 0%, rgba(244,199,132,1) 29%, rgba(255,187,98,1) 59%, rgba(252,195,69,1) 100%);
     
 }
 
@@ -163,7 +164,6 @@ html * {
 .navText{
     font-size: 2vw;
     margin: 1vw;
-    
 }
 
 .navIcon{
@@ -172,11 +172,11 @@ html * {
 }
 
 .colorText{
-color:rgb(0, 0, 0)
+color: white
 }
 
 #basic-nav-dropdown{
-    color: black;
+    color: white;
 }
 
 .logoText{
@@ -222,11 +222,17 @@ flex-direction: row;
 }
 
 .colorBgNav{
-   background: rgb(180,144,58);
-   background: linear-gradient(90deg, rgba(180,144,58,1) 0%, rgba(253,164,29,1) 41%, rgba(253,156,29,1) 59%, rgba(252,195,69,1) 100%);
+   background: transparent !important;
    display: flex;
    justify-content: space-evenly;
 }
+
+.colorFooter{
+    background: rgb(255,158,30);
+    background: linear-gradient(90deg, rgba(255,158,30,1) 0%, rgba(255,211,63,1) 29%, rgba(254,252,116,1) 59%, rgba(252,195,69,1) 100%);
+    display: flex;
+    justify-content: space-evenly;
+ }
 
 .linkText{
     font-size: 1.5vw;
