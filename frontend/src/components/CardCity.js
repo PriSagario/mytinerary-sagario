@@ -23,7 +23,6 @@ function CardCity (props) {
         <div >
             <div className="navCityBg" style={backgroundCity}>
                 <NavBarP />
-
             </div>
         <div className="mainCity ">
         <div className="cityImg">
@@ -39,7 +38,7 @@ function CardCity (props) {
         <Itinerary itineraries={props.itineraries} />    
         ) :
         (
-            <h1>UNDER CONSTRUCTION</h1>
+            <h1 className="noItiMess">We don't have any itineraries here right now. Try another city!</h1>
         )} 
         <div className="buttons-back">
         <Link to="/cities" className="backCities"> Back to Cities</Link>

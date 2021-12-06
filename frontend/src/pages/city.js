@@ -1,5 +1,4 @@
 import React from "react"
-import NavBarP from '../components/Navbar'
 import CardCity from '../components/CardCity'
 import FooterP from "../components/Footer"
 import Itinerary from "../components/Itinerary"

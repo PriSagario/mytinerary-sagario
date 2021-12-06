@@ -18,7 +18,7 @@ const FooterP = () => {
                 <Link className="fooText" to= "/"> Home </Link>
                 <Link className="fooText" to= "/cities"> Cities </Link>
             </div> 
-            <div>
+            <div className="img_red">
               {imgSocial}  
             </div>
             <div>      

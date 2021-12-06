@@ -75,11 +75,50 @@ html * {
      margin: 2rem;
  }
 
- .image-card-iti{
- width: 10vw;
- height: 15vh;
- object-fit: cover;
+ .conteinerCardBody{
+     width: 100%;
+     padding:0;
  }
+
+ .image-card-iti{
+ width: 13vw;
+ height: 25vh;
+ object-fit: cover;
+ margin-right: 1.5rem;
+ margin-left: 0;
+ border-radius: 50%;
+ }
+
+ .card-iti-content{
+     display: flex;
+     justify-content: center;
+     align-content: space-between;
+ }
+
+ .user{
+     font-weight: bolder;
+ }
+
+ .name-only{
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin: 1rem;
+    border-radius: 5%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+ }
+
+.body-content{
+     display: flex;
+    align-content: center;
+    justify-content: space-around;
+
+}
+
+.hashtags{
+    margin-left: 1.5rem;
+}
 
  .title-iti{
      display: flex;
@@ -114,10 +153,25 @@ html * {
      padding: 8px;
      background-color: rgba(243, 187, 82, 0.507);
  }
+ 
+ .card-header{
+display: flex;
+justify-content: center;
+align-content: center;
+margin: 0.5rem;
+font-weight: bolder;
+background-color: peru;
+ }
+
+.card-body{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
 
  .imgOnly{
     width: 100%;
-    height: 60vh;
+    height: 70vh;
     margin: 0;
     padding: 0;
    object-fit: cover;
@@ -256,6 +310,21 @@ flex-direction: row;
 
 .cityConteiner{
     margin: 2rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.noItiMess{
+margin: 1rem;
+box-sizing: border-box;
+border: 2px solid orangered;
+padding: 0.5rem;
+display: flex;
+justify-content: center;
+align-content: center;
+background-color: rgb(255, 235, 122);
 }
 
 .linkCity{
@@ -345,7 +414,8 @@ flex-direction: row;
         font-size: 3vw;
     }
     .imgOnly{
-        width: 60%;
+        width: 100%;
+        height: 50vh;
         }
     }
 
@@ -384,8 +454,12 @@ flex-direction: row;
             font-size: 8vw;
         }
         .imgOnly{
-            width: 90%;
+            width: 100%;
             }
+        .image-card-iti{
+            width: 30vw;
+            height: 5vh;
+        }
 
     }
 
@@ -394,7 +468,15 @@ flex-direction: row;
         height: 180vh;
         }
         .imgOnly{
-        width: 70%;
+        width: 100%;
+        }
+        .card-iti-content{
+            display: flex;
+            flex-direction: column;
+        }
+        .image-card-iti{
+            width: 18vw;
+            height: 20vh;
         }
         }
 
@@ -413,6 +495,14 @@ flex-direction: row;
             font-size: 4vw;
         }  
         .imgOnly{
-        width: 70%;
+        width: 100%;
+        }
+        
+    }
+
+    @media (max-width:650px){
+        .image-card-iti{
+            width: 20vw;
+            height: 18vh;
         }
     }

@@ -8,27 +8,31 @@ export default function Itinerary(props) {
     function money(price) {
         return Array.from({ length: price })
     }
-    console.log(props.itineraries)
+    
     return (
         <div className="itinerariesAll">
            {props.itineraries &&
                 props.itineraries.map((itinerary, index) => (
                     <Card key={index} className="card-iti">
                         <Card.Header>{itinerary.title}</Card.Header>
-                        <Card.Body>
+                        <Card.Body className="conteinerCardBody">
+                            <div className="card-iti-content">
                             <div className="user">
                                 <img className="image-card-iti" variant="top" src={itinerary.src} />
-                                <p>{itinerary.name}</p>
+                                <p className="name-only">{itinerary.name}</p>
                             </div>
+                            <div className="body-content">
                             <div className="itinerary-text">
                                 <span> Duration : {itinerary.duration}hs</span>
                                 <div className="macaGrax">
-                                <p>Price : </p>
+                                <p>Price: </p>
                                 {money(itinerary.price).map(() => (
                                     <span>💵</span>
                                 ))}
                                 </div>
-                                <div>
+                                </div>
+                                </div>
+                                <div className="hashtags">
                                 {itinerary.hashtags.map((hash) => (
                                     <div className="tag"> #{hash}</div>
                                 ))}
