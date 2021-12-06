@@ -47,6 +47,45 @@ html * {
      align-items: center;
  }
 
+ .itinerariesAll{
+     display: flex;
+     align-items: center;
+     justify-content:center;
+     background-color: rgb(255, 166, 0);
+     flex-direction: column;
+     width: 90%;
+     margin: 2rem;
+     
+ }
+
+ .macaGrax{
+     display: flex;
+     flex-direction: row;
+ }
+
+ .buttons-back{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+ }
+
+ .card-iti{
+     width: 50%;
+     background-color: rgb(250, 224, 175);
+     margin: 2rem;
+ }
+
+ .image-card-iti{
+ width: 10vw;
+ height: 15vh;
+ object-fit: cover;
+ }
+
+ .title-iti{
+     display: flex;
+     justify-content: center;
+ }
+
  .card-imagen:hover{
      background-color: rgb(255, 94, 0);
  }
@@ -79,6 +118,8 @@ html * {
  .imgOnly{
     width: 100%;
     height: 60vh;
+    margin: 0;
+    padding: 0;
    object-fit: cover;
    background-repeat: no-repeat;
  }

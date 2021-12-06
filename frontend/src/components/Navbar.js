@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const NavBarP = () => {
   let imageUsu = <img 
-  src= '../assets/login.png'
+  src= '../assets/user-login.png'
   width="50"
-  height="40"
+  height="45"
   alt="User"
   />
 
