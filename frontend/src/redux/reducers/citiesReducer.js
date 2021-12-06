@@ -30,13 +30,6 @@ const citiesReducer = (state = initialState, action) => {
                 ...state,
                 auxiliar: filtered,
             }
-
-            case 'GET_ITINERARY_BY_ID':
-                return{
-                  ...state,
-                  itineraries: action.payload
-                }
-
         default: return state
 
     }

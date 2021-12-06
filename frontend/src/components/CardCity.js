@@ -1,8 +1,10 @@
 import {Link, useParams} from 'react-router-dom'
 import citiesActions from '../redux/actions/citiesActions'
+import itinerariesAction from '../redux/actions/itinerariesActions'
 import { connect } from 'react-redux'
 import Itinerary from './Itinerary'
 import {useEffect} from "react"
+import NavBarP from './Navbar'
 
 function CardCity (props) {
     const params = useParams()
@@ -13,8 +15,16 @@ function CardCity (props) {
         props.getItinerariesById(params.id)
     }, [props.cities]) 
     
+    const backgroundCity = {
+        backgroundImage: "url(" + props.city.src + ")"
+    }
+
     return (
         <div >
+            <div className="navCityBg" style={backgroundCity}>
+                <NavBarP />
+
+            </div>
         <div className="mainCity ">
         <div className="cityImg">
         <img className="imgOnly" key={props.city._id} alt={props.city.name} src={`.${props.city.src}`} />
@@ -43,14 +53,14 @@ function CardCity (props) {
 const mapDispatchToProps = {
     findCity: citiesActions.findCity,
     getCities: citiesActions.getCities,
-    getItinerariesById: citiesActions.getItinerariesById
+    getItinerariesById: itinerariesAction.getItinerariesById
 }
 
 const mapStateToProps = (state) => {
     return {
         cities: state.citiesReducer.cities,
         city: state.citiesReducer.city,
-        itineraries: state.citiesReducer.itineraries
+        itineraries: state.itinerariesReducer.itineraries
     }
 }
 

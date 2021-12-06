@@ -22,7 +22,8 @@ function CardCities(props) {
             <div className="contenedor-ciudades">
                 <div className="card-ciudad">
 
-                     {props.auxiliar.length > 0 ? (
+                     {props.cities.length > 0 ? (
+                     props.auxiliar.length > 0 ? (
                         props.auxiliar.map(ciudad => {
                         return (
                             <Link to={`/city/${ciudad._id}`} className="linkCity">
@@ -33,7 +34,8 @@ function CardCities(props) {
                             </Link>
                         )
                     }
-                    )) : (<h1 className="textErr">No cities available for your search</h1>)
+                    )) : (<h1 className="textErr">No cities available for your search</h1>)) :
+                    <h1>Loading...</h1>
                 }
                 </div>
             </div>

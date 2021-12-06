@@ -10,7 +10,6 @@ export default class City extends React.Component {
         return (
             <div>
                 <div>
-                    <NavBarP className="navCity-bg"/>
                     <div className="bgCity ">
                     <CardCity />
                     <Itinerary/>
