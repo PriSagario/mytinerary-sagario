@@ -6,7 +6,7 @@ lastname: {type: String, required: true},
 photo:{type: String},
 email:{type:String, required:true},
 password:{type:String, required:true},
-country:{type:Array}
+country:{type: String}
 })
 
 const User = mongoose.model('user', userSchema)
