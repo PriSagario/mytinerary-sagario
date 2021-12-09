@@ -10,17 +10,17 @@ const NavBarP = () => {
   alt="User"
   />
 
-  /*let imageLogo = <img 
+  /* let imageLogo = <img 
   src= '../assets/logo.png'
   width="100"
   height="100"
   alt="User"
-  />*/
+  /> */
 
   return (
     <Navbar expand="lg" className="p-1 colorBgNav">
       <Container>
-        {/*<div className="logoText"><h2>MyTinerary</h2>{imageLogo}</div>*/}
+        {/* <div className="logoText">{imageLogo}</div> */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto navbarCon"/>
@@ -28,8 +28,8 @@ const NavBarP = () => {
             <Nav.Link className="navText" as={Link} to="/"> <p className="colorText"> Home </p></Nav.Link>
             <Nav.Link className="navText" as={Link} to="/cities"> <p className="colorText"> Cities </p></Nav.Link>
             <NavDropdown className="navText navIcon" title={imageUsu} id="basic-nav-dropdown">
-              <NavDropdown.Item >Sign up</NavDropdown.Item>
-              <NavDropdown.Item >Sign in</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/auth/signUp">Sign up</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/auth/signIn">Sign in</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

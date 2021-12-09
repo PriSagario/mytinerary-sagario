@@ -16,7 +16,7 @@ function CardCity (props) {
     }, [props.cities]) 
     
     const backgroundCity = {
-        backgroundImage: "url(" + props.city.src + ")"
+        backgroundImage: "url(" + `.${props.city.src}` + ")"
     }
 
     return (
@@ -26,13 +26,12 @@ function CardCity (props) {
             </div>
         <div className="mainCity ">
         <div className="cityImg">
-        <img className="imgOnly" key={props.city._id} alt={props.city.name} src={`.${props.city.src}`} />
         </div>
         <div className="cityConteiner">
         <h1 className="countryTitle">{props.city.name}, {props.city.country}</h1>
         <p className="descriptionCity">{props.city.description}</p>
         </div>
-         
+        <h1 className="itineraries-title">ITINERARIES</h1>
         {props.itineraries.length > 0 ?
         (
         <Itinerary itineraries={props.itineraries} />    

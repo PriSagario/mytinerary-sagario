@@ -10,6 +10,7 @@ export default function Itinerary(props) {
     }
     
     return (
+    
         <div className="itinerariesAll">
            {props.itineraries &&
                 props.itineraries.map((itinerary, index) => (

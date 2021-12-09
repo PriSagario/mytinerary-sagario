@@ -51,10 +51,11 @@ html * {
      display: flex;
      align-items: center;
      justify-content:center;
-     background-color: rgb(255, 166, 0);
+     background-color: rgba(255, 166, 0, 0.555);
      flex-direction: column;
-     width: 90%;
-     margin: 2rem;
+     width: 80%;
+     margin-left: 10%;
+     margin-right: 10%;
      
  }
 
@@ -70,7 +71,7 @@ html * {
  }
 
  .card-iti{
-     width: 50%;
+     width: 70%;
      background-color: rgb(250, 224, 175);
      margin: 2rem;
  }
@@ -160,22 +161,40 @@ justify-content: center;
 align-content: center;
 margin: 0.5rem;
 font-weight: bolder;
-background-color: peru;
+background-color: rgb(255, 128, 0);
+ }
+
+ .user{
+     display: flex;
+     justify-content: flex-start;
+     flex-direction: column;
  }
 
 .card-body{
     display: flex;
     align-content: center;
     justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
  .imgOnly{
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     margin: 0;
     padding: 0;
    object-fit: cover;
+   object-position: 50%;
    background-repeat: no-repeat;
+
+ }
+
+ .navCityBg{
+    width: 100%;
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
  }
 
 .card-ciudad{
@@ -192,6 +211,17 @@ background-color: peru;
     justify-content: center;
     align-content: center;
     
+ }
+
+ .itineraries-title{
+     display: flex;
+     justify-content: center;
+     align-content: center;
+     background-color: rgba(255, 166, 0, 0.596);
+     width: 80%;
+     margin-left: 10%;
+     margin-right: 10%;
+     padding-top: 1rem;
  }
 
  .nameCity{
@@ -399,6 +429,33 @@ background-color: rgb(255, 235, 122);
     flex-direction: row;
     align-items: center;
     justify-content:space-around;
+}
+
+.backgroundSign{
+    background-image: url(./assets/palm.jpg);
+    height: 80vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.cardSign{
+    background-color: rgba(23, 255, 120, 0.452);
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 2rem;
+    color: white;
+    font-size: 2vw ;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 5px solid white;
+    box-shadow: white;
+    margin: 1rem;
 }
 
 @media (max-width:990px){

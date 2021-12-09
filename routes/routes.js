@@ -1,6 +1,7 @@
 const Router =require("express").Router()
 const citiesController = require("../controllers/citiesController")
 const itineraryController = require("../controllers/itineraryController")
+const authControllers = require("../controllers/authControllers")
 
 Router.route('/cities')
 .get(citiesController.readCities)
@@ -24,6 +25,10 @@ Router.route('/itinerary/:id')
 
 Router.route("/itineraries/:city")
 .get(itineraryController.returnItinerariesByCity)
+
+Router.route('/auth/signUp')
+.get(authControllers.postUser)
+.get(authControllers.readUsers)
 
 
 module.exports = Router

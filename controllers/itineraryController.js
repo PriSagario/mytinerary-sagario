@@ -22,8 +22,8 @@ const itineraryController = {
     createItinerary:(req,res) =>{
       const {name, src, title, price, likes, duration, hashtags,comment, city} = req.body
       const itinerary = new Itinerary(req.body).save()
-      .then((response) => res.json({response}))
-      console.log(itinerary)
+      .then((response) => res.json({itinerary: response, success:true}))
+      .catch((e) => res.json({error : e.errors.Price}))
       
     },
     deleteItinerary: async (req,res) =>{

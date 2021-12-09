@@ -6,7 +6,7 @@ const FooterP = () => {
 
     let imgSocial = <img 
   src= '../assets/socialMedia.png'
-  width="200"
+  width="180"
   height="90"
   alt="Social Media"
   />
