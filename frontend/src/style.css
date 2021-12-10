@@ -434,29 +434,75 @@ background-color: rgb(255, 235, 122);
 
 .backgroundSign{
     background-image: url(./assets/palm.jpg);
-    height: 80vh;
+    height: 110vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .cardSign{
-    background-color: rgba(23, 255, 120, 0.452);
+    background-color: rgba(23, 255, 120, 0.616);
     width: 50%;
     display: flex;
     justify-content: center;
     align-content: center;
     padding: 2rem;
     color: white;
-    font-size: 2vw ;
+    font-size: 1.5vw ;
     box-sizing: border-box;
     border-radius: 10px;
     border: 5px solid white;
     box-shadow: white;
     margin: 1rem;
+}
+
+.titleSignIn{
+    font-size:2.5vw;
+    box-sizing: border-box;
+    border: white solid 2px;
+    border-radius: 5px;
+}
+
+.linkSignIn{
+    text-decoration: none;
+    color: white;
+    box-sizing: border-box;
+    border: white 2px solid;
+    background-color: rgba(255, 255, 255, 0.253);
+}
+
+.inputsSignIn{
+    display: flex;
+    flex-direction: column;
+}
+
+.propsSignIN{
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.bodyFormSU{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    
+}
+
+.labelSU{
+    display: flex;
+    justify-content: space-around;
+}
+
+.labelCountry{
+    display: flex;
+    justify-content: space-around;
 }
 
 @media (max-width:990px){

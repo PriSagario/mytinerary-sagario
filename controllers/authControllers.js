@@ -1,5 +1,6 @@
 const User = require ("../models/User")
 const bcryptjs = require("bcryptjs")
+const jwt = require('jsonwebtoken')
 
 const authControllers = {
     signUpUser: async (req,res) =>{
@@ -37,6 +38,8 @@ const authControllers = {
                 const passwordIsOk = bcryptjs.compareSync(password, user.password)
                 if (!passwordIsOk) {
                     res.json({success: false, response: user, error:"Email or password is incorrect. Try again"})
+                    const token = jwt.sign(...user, process.env.SECRET_KEY)
+                    console.log(token)
                 } else {
                     res.json({success:true, response:{email}, error: null})
                 } 

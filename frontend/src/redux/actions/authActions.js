@@ -1,10 +1,11 @@
 import axios from "axios"
 
 const authActions ={
-    postUser: (email, password) => {
+    postUser: (name, lastname, password, email, country) => {
         return async (dispatch, getState) => {
             try {
-                const user = await axios.post("http://localhost:4000/api/auth/signUp", {email, password})
+                const user = await axios.post("http://localhost:4000/api/auth/signUp",
+                 {name, lastname, password, email, country})
                 if(user.data.success && !user.data.error){
                 dispatch({type: 'NEW_USER', payload:{email, password}})
                 }else{
@@ -31,4 +32,4 @@ const authActions ={
     },
 }
 
-module.exports = authActions
+export default authActions
