@@ -1,6 +1,7 @@
 const initialState = {
     state: [],
     user: { email: '' },
+    token: "",
 }
 
 const authReducer = (state = initialState, action) => {
@@ -10,21 +11,24 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 user: action.payload
             }
-        case 'SIGN_OUT':
+        case "SIGNIN_USER":
             return {
                 ...state,
-                token: null,
-                errors: null,
-                toastShowed: false,
-                ...action.payload
+                user: action.payload,
+            }
+            case "SIGN_OUT":
+                return {
+                  ...state,
+                  token: action.payload,
+                  user: action.payload,
+                }
+        case "TOKEN":
+            return {
+                ...state,
+                token: action.payload,
+                user: action.payload,
             }
 
-
-        /*  case 'USER':
-         return {
-             ...state,
-             user: action.payload
-         } */
         default: return state
     }
 }

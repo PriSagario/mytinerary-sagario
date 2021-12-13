@@ -9,7 +9,7 @@ const validator = (req, res, next) => {
         lastname: joi.string(),
         password: joi.string().required().trim().min(5).messages({
             'string.empty': 'this field is required',
-            'string.min': 'this field must have at least 8 characters'
+            'string.min': 'this field must have at least 5 characters'
         }),
         email: joi.string().email().required(),
         country: joi.string(),
@@ -19,7 +19,6 @@ const validator = (req, res, next) => {
     const validation = schema.validate(req.body, { abortEarly: false })
 
     if (validation.error) {
-        console.log(validation.error)
         return res.json({ success: false, response: validation.error.details })
     } next()
 }

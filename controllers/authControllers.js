@@ -6,7 +6,7 @@ const authControllers = {
     signUpUser: async (req, res) => {
         const { name, lastname, password, email, country, photo, google} = req.body
         try {
-            const userExist = await User.findOne({ name })
+            const userExist = await User.findOne({ email })
             if (userExist) {
                 res.json({ success: false, error: "Username is already registered", response: null })
             }
@@ -14,7 +14,8 @@ const authControllers = {
                 const passwordHasheada = bcryptjs.hashSync(password, 10)
                 const newUser = new User({ name, lastname, password: passwordHasheada, email, country, photo, google})
                 await newUser.save()
-                res.json({ success: true, response: newUser, error: null })
+                const token = jwt.sign({ ...newUser }, process.env.SECRET_KEY)
+                res.json({ success: true, response:{token, newUser}, error: null })
             }
         } catch (error) {
             res.json({ success: false, response: null, error: error })
@@ -27,10 +28,9 @@ const authControllers = {
     },
 
     signInUser: async (req, res) => {
-        const { email, password } = req.body
+        const { password, email } = req.body
         try {
             const user = await User.findOne({ email })
-
             if (!user) {
                 res.json({ success: false, error: 'User does not exist', response: null })
             }
@@ -49,6 +49,9 @@ const authControllers = {
             res.json({ success: false, response: null, error: error })
         }
     },
+    checkearToken: (req, res) => {
+        res.json(req.user)
+      },
 }
 
 module.exports = authControllers
