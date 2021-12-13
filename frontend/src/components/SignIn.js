@@ -36,14 +36,14 @@ function SignInP(props) {
 
                 </div>
             </div>
-            <div className='propsSignIN'>
+            {/* <div className='propsSignIN'>
                 <h1>Name: {props.user.name}</h1>
                 <h1>Lastname: {props.user.lastname}</h1>
                 <h1>Email: {props.user.email}</h1>
                 <h1>Photo: <img src={props.user.photo} /> || "Upload a photo"</h1>
                 <h1>Country: {props.user.country || "Select a country"}</h1>
             </div>
-
+ */}
         </div>
     )
 }
@@ -55,7 +55,7 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => {
     console.log(state)
     return {
-        user: state.authReducer.user,
+        user: state.authReducer.newUser,
     }
 }
 

@@ -505,6 +505,17 @@ background-color: rgb(255, 235, 122);
     justify-content: space-around;
 }
 
+.buttonsSignUp{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    }
+
+.signGoogle{
+    margin-top: 1rem;
+}
+
 @media (max-width:990px){
     .navText{
         font-size: 2rem;

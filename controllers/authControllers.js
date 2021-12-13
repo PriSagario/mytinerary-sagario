@@ -1,28 +1,28 @@
-const User = require ("../models/User")
+const User = require("../models/User")
 const bcryptjs = require("bcryptjs")
 const jwt = require('jsonwebtoken')
 
 const authControllers = {
-    signUpUser: async (req,res) =>{
-        const {name, lastname, photo, email, password, country} = req.body
-        try{
-        const userExist = await User.findOne({name})
-        if (userExist){
-            res.json({success:false, error: "Username is already registered", response: null})
+    signUpUser: async (req, res) => {
+        const { name, lastname, password, email, country, photo, google} = req.body
+        try {
+            const userExist = await User.findOne({ name })
+            if (userExist) {
+                res.json({ success: false, error: "Username is already registered", response: null })
+            }
+            else {
+                const passwordHasheada = bcryptjs.hashSync(password, 10)
+                const newUser = new User({ name, lastname, password: passwordHasheada, email, country, photo, google})
+                await newUser.save()
+                res.json({ success: true, response: newUser, error: null })
+            }
+        } catch (error) {
+            res.json({ success: false, response: null, error: error })
         }
-        else {
-            const passwordHasheada = bcryptjs.hashSync(password, 10)
-            const newUser = new User({ name, lastname, photo, email, password: passwordHasheada, country })
-            await newUser.save()
-            res.json({ success: true, response: newUser, error: null })
-        }
-       }catch(error){
-           res.json({success:false, response:null,error: error})
-       } 
-      },
+    },
     readUsers: (req, res) => {
-        User.find().then((response)=>{
-            res.json({response})
+        User.find().then((response) => {
+            res.json({ response })
         })
     },
 
@@ -32,21 +32,21 @@ const authControllers = {
             const user = await User.findOne({ email })
 
             if (!user) {
-                res.json({success:false, error: 'User does not exist', response: null})
+                res.json({ success: false, error: 'User does not exist', response: null })
             }
-            else{
+            else {
                 const passwordIsOk = bcryptjs.compareSync(password, user.password)
                 if (!passwordIsOk) {
-                    res.json({success: false, response: user, error:"Email or password is incorrect. Try again"})
-                    const token = jwt.sign(...user, process.env.SECRET_KEY)
-                    console.log(token)
+                    res.json({ success: false, response: user, error: "Email or password is incorrect. Try again" })
+
                 } else {
-                    res.json({success:true, response:{email}, error: null})
-                } 
-            } 
-            
+                    const token = jwt.sign({ ...user }, process.env.SECRET_KEY)
+                    res.json({ success: true, response: { user, token }, error: null })
+                }
+            }
+
         } catch (error) {
-            res.json({success:false, response: null, error: error})
+            res.json({ success: false, response: null, error: error })
         }
     },
 }

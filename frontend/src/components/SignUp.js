@@ -1,28 +1,50 @@
 import authActions from '../redux/actions/authActions'
 import { useRef } from 'react'
 import { connect } from 'react-redux'
+import countries from './Countries'
+import GoogleLogin from 'react-google-login'
 
 function SignUpP(props) {
-    const { email, password, name, lastname, photo, country } = useRef()
+    const responseGoogle = (response) => {
+        console.log(response)
+        let googleUser = {
+            name: response.profileObj.givenName,
+            lastname: response.profileObj.familyName,
+            email: response.profileObj.email,
+            password: response.profileObj.googleId,
+            country: "Argentina",
+            photo: response.profileObj.imageUrl,
+            google: true
+        }
+
+        props.postUser(googleUser)
+            
+    }
+    const name = useRef()
+    const lastname = useRef()
+    const password = useRef()
+    const email = useRef()
+    const country = useRef()
+    const photo = useRef()
 
     function handleSubmit(e) {
         e.preventDefault()
 
         props.postUser(
-            email.current.value,
-            password.current.value,
             name.current.value,
             lastname.current.value,
+            password.current.value,
+            email.current.value,
+            country.current.value,
             photo.current.value,
-            country.current.value
         )
 
-        email.current.value = ""
-        password.current.value = ""
         name.current.value = ""
         lastname.current.value = ""
-        photo.current.value = ""
+        password.current.value = ""
+        email.current.value = ""
         country.current.value = ""
+        photo.current.value = ""
     }
 
     return (
@@ -45,6 +67,10 @@ function SignUpP(props) {
                                 <label>Email</label>
                                 <input type="text" id="email" className='labelSU' ref={email} />
                             </div>
+                            <div className='inputPassword'>
+                                <label>Password</label>
+                                <input type="text" id="password" className='labelSU' ref={password} />
+                            </div>
                             <div className='inputPhoto'>
                                 <label>Photo</label>
                                 <input type="text" id="photo" className='labelSU' ref={photo} />
@@ -52,13 +78,24 @@ function SignUpP(props) {
                             <div className='inputCountry'>
                                 <label>Country</label>
                                 <select type="text" id="country" className='labelCountry' ref={country}>
-                                    <option valu="ar">Argentina</option>
-                                    <option valu="br">Brasil</option>
-                                    <option valu="co">Colombia</option>
+                                    {countries.sort().map(country => {
+                                        return (
+                                            <option value="country" className='color-country'>{country}</option>
+                                        )
+                                    })}
                                 </select>
                             </div>
+                            <div className='buttonsSignUp'>
+                                <input type="submit" className="btn-warning p-1 fs-6 fw-normal m-1 button-VM" value="Sign up" />
+                                <GoogleLogin
+                                    clientId="441570016693-8sblie0ro7jmdcrk5lb0nphcl4ug15kl.apps.googleusercontent.com"
+                                    buttonText="Sign Up with Google"
+                                    onSuccess={responseGoogle}
+                                    onFailure={responseGoogle}
+                                    cookiePolicy={'single_host_origin'}
+                                />
+                            </div>
                         </div>
-                        <input type="submit" value="Sign up" />
                     </form>
                 </div>
             </div>
