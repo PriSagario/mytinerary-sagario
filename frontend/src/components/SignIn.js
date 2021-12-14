@@ -9,15 +9,19 @@ import { useNavigate } from "react-router-dom"
 function SignInP(props) {
     let navigate = useNavigate()
     const responseGoogle = (response) => {
-        
-         props.signIn(
+
+        props.signIn(
             response.profileObj.email,
             response.profileObj.googleId,
             true
-        ) 
+        )
     }
 
-    !props.token && props.tokenDale()
+    localStorage.getItem("token") && !props.token && props.tokenDale()
+    
+    props.token && navigate("/", {replace: true})
+    
+
     const email = useRef()
     const password = useRef()
 
@@ -38,8 +42,8 @@ function SignInP(props) {
                     <p>Sign in MyTinerary</p>
                     <form onSubmit={handleSignInP}>
                         <div className='inputsSignIn'>
-                            <input type="text" className='signInBtn' placeholder='Email' ref={email} required="true" />
-                            <input type="password" className='signInBtn' placeholder='Password' ref={password} required="true" />
+                            <input type="text" className='signInBtn' placeholder='Email' ref={email} required={true }/>
+                            <input type="password" className='signInBtn' placeholder='Password' ref={password} required={true } />
                             <input type="submit" className='signInBtn' value="Sign in" />
                         </div>
                     </form>
@@ -59,7 +63,6 @@ function SignInP(props) {
 
                 </div>
             </div>
-             <h1>Name: {props.token && navigate("/", { replace: true })}</h1>
         </div>
     )
 }

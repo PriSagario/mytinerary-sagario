@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import { Card } from 'react-bootstrap'
-import { display, handleClick } from 'react'
 
 export default function Itinerary(props) {
-    const [open, setOpen] = useState(false)
 
     const [display, setDisplay] = useState(false)
     const handleClick = () => setDisplay(!display)
@@ -17,12 +15,12 @@ export default function Itinerary(props) {
         <div className="itinerariesAll">
             {props.itineraries &&
                 props.itineraries.map((itinerary, index) => (
-                    <Card key={index} className="card-iti">
+                    <Card key={itinerary.id} className="card-iti">
                         <Card.Header>{itinerary.title}</Card.Header>
                         <Card.Body className="conteinerCardBody">
                             <div className="card-iti-content">
                                 <div className="user">
-                                    <img className="image-card-iti" variant="top" src={itinerary.src} />
+                                    <img className="image-card-iti" variant="top" alt='card_city' src={itinerary.src} />
                                     <p className="name-only">{itinerary.name}</p>
                                 </div>
                                 <div className="body-content">

@@ -32,12 +32,12 @@ const authControllers = {
         try {
             const user = await User.findOne({ email })
             if (!user) {
-                res.json({ success: false, error: 'User does not exist', response: null })
+                res.json({ success: false, error: "User doesn't exist", response: null })
             }
             else {
                 const passwordIsOk = bcryptjs.compareSync(password, user.password)
                 if (!passwordIsOk) {
-                    res.json({ success: false, response: user, error: "Email or password is incorrect. Try again" })
+                    res.json({ success: false, response: user, error: "Email or password are incorrect. Try again" })
 
                 } else {
                     const token = jwt.sign({ ...user }, process.env.SECRET_KEY)

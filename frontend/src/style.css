@@ -516,6 +516,24 @@ background-color: rgb(255, 235, 122);
     margin-top: 1rem;
 }
 
+.white-link{
+    text-decoration: none;
+}
+
+.welcome{
+    color: white;
+    margin-top: 2vh;
+}
+
+.photoUserNav{
+    width: 3rem;
+  height: 3rem;
+  border-radius: 50%; 
+  object-fit: cover;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 @media (max-width:990px){
     .navText{
         font-size: 2rem;

@@ -5,8 +5,7 @@ import authActions from "../redux/actions/authActions"
 import { connect } from "react-redux"
 
 function NavBarP(props) {
-  !props.token && props.tokenDale()
-  console.log(props.token)
+  localStorage.getItem("token") && !props.token && props.tokenDale()
   let imageUsu = <img
     src='../assets/user-login.png'
     width="50"
@@ -39,7 +38,7 @@ function NavBarP(props) {
                           ? props.user.photo
                           : "../assets/user-login.png"
                       }
-                      className="nav-img shadowfilter"
+                      className="photoUserNav"
                       alt="user_photo"
                     />
                   }

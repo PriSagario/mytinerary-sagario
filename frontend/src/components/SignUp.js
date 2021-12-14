@@ -1,11 +1,16 @@
 import authActions from '../redux/actions/authActions'
-import { useRef } from 'react'
+import {  useRef } from 'react'
 import { connect } from 'react-redux'
 import countries from './Countries'
 import GoogleLogin from 'react-google-login'
 import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom"
 
 function SignUpP(props) {
+    let navigate = useNavigate()
+    localStorage.getItem("token") && !props.token && props.tokenDale()
+    props.token && navigate("/", {replace: true})
+
     const responseGoogle = (response) => {
         let googleUser = {
             name: response.profileObj.givenName,
@@ -48,6 +53,9 @@ function SignUpP(props) {
         photo.current.value = ""
     }
 
+
+ 
+
     return (
         <div className="backgroundSign">
             <div className="cardSign">
@@ -58,30 +66,33 @@ function SignUpP(props) {
                         <div className='bodyFormSU'>
                             <div className='inputName'>
                                 <label>Name</label>
-                                <input type="text" id="name" className='labelSU' ref={name} />
+                                <input type="text" id="name" className='labelSU' ref={name}
+                                 required minLength="3" maxLength="20" />
                             </div>
                             <div className='inputLastame'>
                                 <label>Lastname</label>
-                                <input type="text" id="lastname" className='labelSU' ref={lastname} />
+                                <input type="text" id="lastname" className='labelSU' ref={lastname} 
+                                required minLength="3" maxLength="20"/>
                             </div>
                             <div className='inputEmail'>
                                 <label>Email</label>
-                                <input type="text" id="email" className='labelSU' ref={email} />
+                                <input type="text" id="email" className='labelSU' ref={email} required/>
                             </div>
                             <div className='inputPassword'>
                                 <label>Password</label>
-                                <input type="password" id="password" className='labelSU' ref={password} />
+                                <input type="password" id="password" className='labelSU' ref={password}
+                                 required minLength="8" maxLength="20" />
                             </div>
                             <div className='inputPhoto'>
                                 <label>Photo</label>
-                                <input type="text" id="photo" className='labelSU' ref={photo} />
+                                <input type="text" id="photo" className='labelSU' ref={photo} required />
                             </div>
                             <div className='inputCountry'>
                                 <label>Country</label>
                                 <select type="text" id="country" className='labelCountry' ref={country}>
-                                    {countries.sort().map(country => {
+                                    {countries.sort().map((country, index) => {
                                         return (
-                                            <option value="country" className='color-country'>{country}</option>
+                                            <option value="country" key={index} className='color-country'>{country}</option>
                                         )
                                     })}
                                 </select>
@@ -99,7 +110,7 @@ function SignUpP(props) {
                             <div>
                                 <p>Do you already have an account?</p>
                                 <Link to="/auth/signIn" className='linkSignIn'>
-                                    Sign up
+                                    Sign in
                                 </Link>
                             </div>
                         </div>
@@ -111,12 +122,14 @@ function SignUpP(props) {
 }
 
 const mapDispatchToProps = {
-    postUser: authActions.postUser
+    postUser: authActions.postUser,
+    tokenDale: authActions.tokenDale,
 }
 
 const mapStateToProps = (state) => {
     return {
-        user: state.authReducer.user
+        user: state.authReducer.user,
+        token: state.authReducer.token,
     }
 }
 

@@ -8,14 +8,18 @@ import SignIn from "./pages/signIn";
 import SignUp from "./pages/signUp";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import {ToastContainer} from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css"
 
 export default class App extends React.Component {
   render() {
     return (
       <>
         <BrowserRouter>
+        <ToastContainer autoClose={5000} />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="*" element={<Home />} />
             <Route path="/cities" element={<Cities />} />
             <Route path="/city/:id" element={<City/>}/>
             <Route path="/auth/signIn" element={< SignIn/>} />

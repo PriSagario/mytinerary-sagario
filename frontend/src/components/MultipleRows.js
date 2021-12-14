@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import Slider from "react-slick";
 import {Card, Container} from "react-bootstrap";
 import "slick-carousel/slick/slick.css";
@@ -7,8 +7,7 @@ import citiesActions from "../redux/actions/citiesActions";
 
 function MultipleRows(props) {
   useEffect(() => {
-    props.getCities();
-  }, [])
+    props.getCities()}, [])
 
   const settings = {
     className: "center",
