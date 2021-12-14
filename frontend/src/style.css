@@ -71,7 +71,7 @@ html * {
  }
 
  .card-iti{
-     width: 70%;
+     width: 60%;
      background-color: rgb(250, 224, 175);
      margin: 2rem;
      
@@ -80,6 +80,8 @@ html * {
  .conteinerCardBody{
      width: 100%;
      padding:0;
+     display: flex;
+     flex-direction: column;
  }
 
  .image-card-iti{
@@ -92,13 +94,18 @@ html * {
  }
 
  .card-iti-content{
+     width: 100%;
+     font-size: large;
      display: flex;
-     justify-content: center;
-     align-content: space-between;
+     justify-content:space-evenly;
+     align-content:center;
  }
 
  .user{
      font-weight: bolder;
+     display: flex;
+     justify-content: center;
+     align-items: center;
  }
 
  .name-only{
@@ -119,7 +126,10 @@ html * {
 }
 
 .hashtags{
-    margin-left: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
  .title-iti{
@@ -223,6 +233,13 @@ background-color: rgb(255, 128, 0);
      margin-left: 10%;
      margin-right: 10%;
      padding-top: 1rem;
+ }
+
+ .itinerary-text{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
  }
 
  .nameCity{
@@ -447,7 +464,7 @@ background-color: rgb(255, 235, 122);
 
 .cardSign{
     background-color: rgba(23, 255, 120, 0.616);
-    width: 50%;
+   height: 70%;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -461,11 +478,33 @@ background-color: rgb(255, 235, 122);
     margin: 1rem;
 }
 
+.cardSignUp{
+    background-color: rgba(23, 255, 120, 0.616);
+   height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 2rem;
+    color: white;
+    font-size: 1.5vw ;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 5px solid white;
+    box-shadow: white;
+    margin: 1rem;
+}
+
+
 .titleSignIn{
-    font-size:2.5vw;
+    font-size:xx-large;
     box-sizing: border-box;
     border: white solid 2px;
     border-radius: 5px;
+}
+
+.backToSignUp{
+    font-size: 1.5rem;
+   
 }
 
 .linkSignIn{
@@ -479,6 +518,9 @@ background-color: rgb(255, 235, 122);
 .inputsSignIn{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: large;
 }
 
 .propsSignIN{
@@ -487,12 +529,23 @@ background-color: rgb(255, 235, 122);
     color: white;
 }
 
+.btnsBottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: x-large;
+}
+
 .bodyFormSU{
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
-    
+   
+}
+.onlyInputs{
+    font-size: large;
+    height: 70%;
 }
 
 .labelSU{
@@ -510,6 +563,7 @@ background-color: rgb(255, 235, 122);
     flex-direction: column;
     justify-content:space-evenly;
     align-items: center;
+    font-size: large;
     }
 
 .signGoogle{
@@ -532,6 +586,30 @@ background-color: rgb(255, 235, 122);
   object-fit: cover;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+
+.buttonViewMore{
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contentSignIn{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.signInBtn{
+    margin: 0.5rem;
+}
+
+.subtitle{
+    margin: 0.5rem;
 }
 
 @media (max-width:990px){

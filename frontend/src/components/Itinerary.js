@@ -26,14 +26,14 @@ export default function Itinerary(props) {
                                 <div className="body-content">
                                     <div className="itinerary-text">
                                         <span> Duration : {itinerary.duration}hs</span>
+                                        <div className='likes-itinerary'>
+                                            <div>Likes: {itinerary.likes}</div>
+                                        </div>
                                         <div className="macaGrax">
                                             <p>Price: </p>
                                             {money(itinerary.price).map(() => (
                                                 <span>💵</span>
                                             ))}
-                                        </div>
-                                        <div className='likes-itinerary'>
-                                            <div>Likes: {itinerary.Likes}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -42,9 +42,11 @@ export default function Itinerary(props) {
                                         <div className="tag"> #{hash}</div>
                                     ))}
                                 </div>
-                                <div className=''>
-                                    <button onClick={handleClick} className="btn-warning p-1 fs-6 fw-normal m-1 button-VM">
-                                        {display ? "view less" : "view more"}
+                                </div>
+                                <div className='buttonViewMore'>
+                                    <button onClick={handleClick} className="btn-warning">
+                                        {" "}
+                                        {display ? "View less" : "View more"}
 
                                     </button>
                                     {display && (
@@ -53,7 +55,7 @@ export default function Itinerary(props) {
                                 </div>
 
 
-                            </div>
+                            
                         </Card.Body>
                     </Card>))}
 

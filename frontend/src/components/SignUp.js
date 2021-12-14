@@ -58,12 +58,13 @@ function SignUpP(props) {
 
     return (
         <div className="backgroundSign">
-            <div className="cardSign">
+            <div className="cardSignUp">
                 <div>
                     <h1 className='titleSignIn'>Your dream destination is about to begin</h1>
-                    <p>Sign up MyTinerary</p>
+                    <h3 className='subtitle'>Sign up MyTinerary</h3>
                     <form onSubmit={handleSubmit}>
                         <div className='bodyFormSU'>
+                            <div className='onlyInputs'>
                             <div className='inputName'>
                                 <label>Name</label>
                                 <input type="text" id="name" className='labelSU' ref={name}
@@ -97,9 +98,12 @@ function SignUpP(props) {
                                     })}
                                 </select>
                             </div>
+                                
+                            </div>
                             <div className='buttonsSignUp'>
-                                <input type="submit" className="btn-warning p-1 fs-6 fw-normal m-1 button-VM" value="Sign up" />
+                            <input type="submit" className='btn-warning p-2 fs-9 fw-normal m-1' value="Sign up" />
                                 <GoogleLogin
+                                    className='googleBtn'
                                     clientId="441570016693-8sblie0ro7jmdcrk5lb0nphcl4ug15kl.apps.googleusercontent.com"
                                     buttonText="Sign Up with Google"
                                     onSuccess={responseGoogle}
@@ -107,7 +111,7 @@ function SignUpP(props) {
                                     cookiePolicy={'single_host_origin'}
                                 />
                             </div>
-                            <div>
+                            <div className='backToSignUp'>
                                 <p>Do you already have an account?</p>
                                 <Link to="/auth/signIn" className='linkSignIn'>
                                     Sign in

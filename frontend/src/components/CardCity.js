@@ -21,7 +21,7 @@ function CardCity (props) {
 
     return (
         <div >
-            <div className="navCityBg" style={backgroundCity}>
+            <div className="navCityBg" style={backgroundCity} >
                 <NavBarP />
             </div>
         <div className="mainCity ">
@@ -34,7 +34,7 @@ function CardCity (props) {
         <h1 className="itineraries-title">ITINERARIES</h1>
         {props.itineraries.length > 0 ?
         (
-        <Itinerary itineraries={props.itineraries} />    
+        <Itinerary itineraries={props.itineraries} id={params.id} />    
         ) :
         (
             <h1 className="noItiMess">We don't have any itineraries here right now. Try another city!</h1>

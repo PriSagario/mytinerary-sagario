@@ -37,16 +37,17 @@ function SignInP(props) {
     return (
         <div className="backgroundSign">
             <div className="cardSign">
-                <div>
+                <div className='contentSignIn'>
                     <h1 className='titleSignIn'>Your dream destination is about to begin</h1>
-                    <p>Sign in MyTinerary</p>
+                    <h3 className='subtitle'>Sign in MyTinerary</h3>
                     <form onSubmit={handleSignInP}>
                         <div className='inputsSignIn'>
                             <input type="text" className='signInBtn' placeholder='Email' ref={email} required={true }/>
                             <input type="password" className='signInBtn' placeholder='Password' ref={password} required={true } />
-                            <input type="submit" className='signInBtn' value="Sign in" />
+                            <input type="submit" className='btn-warning p-2 fs-9 fw-normal m-1' value="Sign in" />
                         </div>
                     </form>
+                    <div className='btnsBottom'>
                     <GoogleLogin
                         clientId="441570016693-8sblie0ro7jmdcrk5lb0nphcl4ug15kl.apps.googleusercontent.com"
                         buttonText="Sign In with Google"
@@ -54,11 +55,12 @@ function SignInP(props) {
                         onFailure={responseGoogle}
                         cookiePolicy={"single_host_origin"}
                     />
-                    <div>
+                    <div className='backToSignUp'>
                         <p>You don't have an account yet?</p>
                         <Link to="/auth/signUp" className='linkSignIn'>
                             Sign up
                         </Link>
+                    </div>
                     </div>
 
                 </div>
