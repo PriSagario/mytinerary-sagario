@@ -4,6 +4,7 @@ const itineraryController = require("../controllers/itineraryController")
 const authControllers = require("../controllers/authControllers")
 const validator = require('../config/validator')
 const passport = require('../config/passport')
+const activitiesControllers = require('../controllers/activitiesControllers')
 
 Router.route('/cities')
 .get(citiesController.readCities)
@@ -20,8 +21,7 @@ Router.route('/itinerary')
 .post(itineraryController.createItinerary)
 
 Router.route('/itinerary/:id')
-.get(itineraryController.returnItineraries)
-.post(itineraryController.createItinerary)
+.get(itineraryController.returnItinerary)
 .delete(itineraryController.deleteItinerary)
 .put(itineraryController.modifyItinerary)
 
@@ -37,6 +37,16 @@ Router.route('/auth/signIn')
 
 Router.route('/auth')
 .get(passport.authenticate('jwt',{ session: false}), authControllers.checkearToken) 
+
+Router.route('/activities')
+.post(activitiesControllers.postActivity)
+.get(activitiesControllers.returnActivities)
+
+Router.route('/activities/:id')
+.get(activitiesControllers.returnActivity)
+.post(activitiesControllers.postActivity)
+.put(activitiesControllers.modifyActivity)
+.delete(activitiesControllers.deleteActivity)
 
 
 module.exports = Router
