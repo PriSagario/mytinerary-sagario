@@ -48,5 +48,8 @@ Router.route('/activities/:id')
 .put(activitiesControllers.modifyActivity)
 .delete(activitiesControllers.deleteActivity)
 
+Router.route('/activity/:itinerary')
+.get(activitiesControllers.returnActivitiesByItinerary)
+
 
 module.exports = Router
