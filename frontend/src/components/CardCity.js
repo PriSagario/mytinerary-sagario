@@ -15,6 +15,7 @@ function CardCity (props) {
         props.getItinerariesById(params.id)
     }, [props.cities]) 
     
+    console.log(props)
     const backgroundCity = {
         backgroundImage: "url(" + `.${props.city.src}` + ")"
     }
@@ -32,13 +33,14 @@ function CardCity (props) {
         <p className="descriptionCity">{props.city.description}</p>
         </div>
         <h1 className="itineraries-title">ITINERARIES</h1>
-        {props.itineraries.length > 0 ?
-        (
-        <Itinerary itineraries={props.itineraries} id={params.id} />    
-        ) :
-        (
-            <h1 className="noItiMess">We don't have any itineraries here right now. Try another city!</h1>
-        )} 
+        {props.city ? (
+                    props.itineraries.length > 0 
+                    ? (props.itineraries.map((itinerary, index)=>
+                    <Itinerary key={index} itinerary={itinerary} cityId={params.id} user={props.user} activities={props.activities} />)) : 
+                    (
+                    <h2 className="noItiMess">There are not itineraries for this city yet...</h2>
+                    )): ""
+            }
         <div className="buttons-back">
         <Link to="/cities" className="backCities"> Back to Cities</Link>
         <Link to="/" className="backCities"> Back to Home</Link>
@@ -58,7 +60,9 @@ const mapStateToProps = (state) => {
     return {
         cities: state.citiesReducer.cities,
         city: state.citiesReducer.city,
-        itineraries: state.itinerariesReducer.itineraries
+        itineraries: state.itinerariesReducer.itineraries,
+        user: state.authReducer.user,
+        activities: state.activitiesReducer.activities,
     }
 }
 

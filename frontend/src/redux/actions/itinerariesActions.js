@@ -12,6 +12,16 @@ const itinerariesAction = {
       })
     }
   },
+  likes: (userId, itineraryId, city_id) => {
+    return async (dispatch, getState) => {
+      let response = await axios.put("http://localhost:4000/api/like", {userId, itineraryId})
+      
+
+          let res = await axios.get("http://localhost:4000/api/itineraries/" + city_id)
+          
+          dispatch({type: "LIKE", payload: res.data.response})
+       }
+   }
 }
 
 export default itinerariesAction

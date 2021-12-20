@@ -12,7 +12,16 @@ const itinerariesReducer = (state = initialState, action) => {
                 itineraries: action.payload
             }
 
-        default: return state
+        case "LIKE":
+                return {
+                  ...state,
+                  itineraries: action.payload,
+                };
+           
+          
+              default:
+                return state;
+            
 
 
     }

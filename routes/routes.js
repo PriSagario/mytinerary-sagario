@@ -5,6 +5,7 @@ const authControllers = require("../controllers/authControllers")
 const validator = require('../config/validator')
 const passport = require('../config/passport')
 const activitiesControllers = require('../controllers/activitiesControllers')
+const likesController = require("../controllers/likesControllers")
 
 Router.route('/cities')
 .get(citiesController.readCities)
@@ -50,6 +51,9 @@ Router.route('/activities/:id')
 
 Router.route('/activity/:itinerary')
 .get(activitiesControllers.returnActivitiesByItinerary)
+
+Router.route('/like')
+.put(likesController.like)
 
 
 module.exports = Router

@@ -1,6 +1,6 @@
 const initialState = {
     state: [],
-    activities: [],
+    activities: {},
 
 }
 
