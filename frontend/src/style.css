@@ -6,11 +6,12 @@ html * {
   }
 
   .bg-cities{
-    background-image: url(./assets/backCities.jpg);
+    background-image: url(./assets/bg-cities.jpg);
     height: 70vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position:bottom;
 }
 
 .backgroundCities{
@@ -261,7 +262,9 @@ background-color: rgb(255, 128, 0);
 }
 
 .pageCities{
-    background-color: rgb(226, 214, 190);
+    background: rgb(250,255,163);
+background: linear-gradient(90deg, rgba(250,255,163,1) 0%, rgba(244,199,132,1) 29%, rgba(255,187,98,1) 59%, rgba(252,195,69,1) 100%);
+
 }
 
 .pagePad{
@@ -279,6 +282,7 @@ background-color: rgb(255, 128, 0);
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     
 }
 
@@ -589,11 +593,26 @@ background-color: rgb(255, 235, 122);
 }
 
 .buttonViewMore{
-    width: 100%;
     padding: 1rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
+    object-fit: cover;
+    background-position: center;
+    margin: 0.1rem;
+}
+
+.heartlike{
+    width: 1.5vw;
+}
+
+.activityPic{
+    width: 15vw;
+    height: 20vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-around;
 }
 
 .contentSignIn{

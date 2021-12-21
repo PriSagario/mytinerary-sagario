@@ -3,38 +3,23 @@ const likesController = {
     like: async (req, res) => {
         const id = req.body.itineraryId
         console.log(req.body)
-        const itinerary = await Itinerary.findOne({ _id: id })
+        const itinerary = await Itinerary.findOne({ _id: id }).lean()
         const likeExist = itinerary.likes.some((like) => like === req.body.userId)
+        const action = likeExist ? "$pull": "$push"
 
-        if (!likeExist) {
             Itinerary.findOneAndUpdate(
                 { _id: id }, {
-                $push: { likes: req.body.userId }
+                [action]: { likes: req.body.userId }
             },
                 { new: true }
             )
+                .lean()
                 .then((response) => {
                     res.json({ response })
                 })
                 .catch((err) => {
                     console.log(err)
                 })
-        } else {
-            Itinerary.findOneAndUpdate(
-                { _id: id }, {
-                $pull: { likes: req.body.userId }
-            },
-                { new: true }
-            )
-                .then((response) => {
-                    res.json({ response })
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
-        }
-
-
     }
 }
 

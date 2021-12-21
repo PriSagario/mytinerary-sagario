@@ -57,7 +57,7 @@ const authActions = {
     signOut: () => {
         localStorage.removeItem("token")
         return (dispatch, getState) => {
-            dispatch({ type: "SIGN_OUT", payload: null })
+            dispatch({ type: "SIGN_OUT", payload: "" })
         }
     },
 }

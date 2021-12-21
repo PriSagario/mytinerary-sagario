@@ -55,5 +55,11 @@ Router.route('/activity/:itinerary')
 Router.route('/like')
 .put(likesController.like)
 
+Router.route('/comments')
+  .get(itineraryController.getCommentsByItineraryId)
+  .post(itineraryController.postComment)
+  .put(itineraryController.editComment)
+  .delete(itineraryController.deleteComment)
+
 
 module.exports = Router
