@@ -1,6 +1,7 @@
 const initialState = {
     state: [],
     itineraries: [],
+    comments: [],
 
 }
 
@@ -13,17 +14,37 @@ const itinerariesReducer = (state = initialState, action) => {
             }
 
         case "LIKE":
-                return {
-                  ...state,
-                  itineraries: action.payload,
-                };
-           
-          
-              default:
-                return state;
-            
-
-
+            return {
+                ...state,
+                itineraries: action.payload,
+            }
+            case 'GET_COMMENTS':
+                return{
+                    ...state,
+                    comments: action.payload
+                } 
+            case 'GET_ALL_COMMENTS':
+                return{
+                    ...state,
+                    comments: action.payload
+                } 
+            case 'POST_COMMENTS':
+                return{
+                    ...state,
+                    comments: action.payload
+                } 
+             case 'EDIT_COMMENTS':
+                 return{
+                    ...state,
+                    comments: action.payload
+                } 
+            case 'DELETE_COMMENTS':
+                return{
+                   ...state,
+                   comments: action.payload
+                } 
+                
+            default: return state
     }
 }
 

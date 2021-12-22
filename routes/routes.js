@@ -6,6 +6,7 @@ const validator = require('../config/validator')
 const passport = require('../config/passport')
 const activitiesControllers = require('../controllers/activitiesControllers')
 const likesController = require("../controllers/likesControllers")
+const validatorComment = require('../config/validatorComments')
 
 Router.route('/cities')
 .get(citiesController.readCities)
@@ -55,9 +56,14 @@ Router.route('/activity/:itinerary')
 Router.route('/like')
 .put(likesController.like)
 
+Router.route('/comments/:itineraryId')
+.get(itineraryController.getCommentsByItineraryId)
+.post(validatorComment ,itineraryController.postComment)
+
 Router.route('/comments')
-  .get(itineraryController.getCommentsByItineraryId)
-  .post(itineraryController.postComment)
+  .get(itineraryController.getAllComments)
+
+Router.route('/comments/:id')
   .put(itineraryController.editComment)
   .delete(itineraryController.deleteComment)
 

@@ -44,6 +44,12 @@ const itineraryController = {
       }
       res.json({success:actualizado ? true : false})
   },
+  getAllComments:async (req, res) => {
+    Comment.find()
+    .populate({ path: "user", select: ["name", "email", "photo"]})
+    .then(response => {res.json({success: true, response: response})})
+    
+},
   getCommentsByItineraryId: async (req, res) => {
     try {
       let commentList = await Comment.find({
@@ -55,7 +61,8 @@ const itineraryController = {
     }
   },
   postComment: async (req, res) => {
-    const { user, itinerary, message } = req.body;
+    const itinerary = req.params.itineraryId
+    const { user, message } = req.body;
     try {
       await new Comment({ user, itinerary, message }).save();
       res.json({
@@ -70,7 +77,8 @@ const itineraryController = {
   },
   editComment: async (req, res) => {
     try {
-      let commentEdit = await Comment.findOneAndUpdate({ _id: req.body.id }, {message: req.body.message}, {new: true});
+      let commentEdit = await Comment.findOneAndUpdate({ _id: req.body.commentId, user: req.user._id }, 
+        {message: req.body.message}, {new: true});
       res.json({
         success: true,
         response: commentEdit

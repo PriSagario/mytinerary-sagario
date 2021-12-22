@@ -6,7 +6,8 @@ import { connect } from "react-redux"
 import activitiesActions from "../redux/actions/activitiesActions"
 import itinerariesActions from "../redux/actions/itinerariesActions"
 import { toast } from 'react-toastify'
-
+import Comments from "./Comments"
+import { useRef } from "react"
 
 function Itinerary(props) {
   const heart = <AiOutlineHeart />
@@ -15,10 +16,29 @@ function Itinerary(props) {
   const [liked, setliked] = useState("")
   const [likes, setlikes] = useState("")
   const [display, setDisplay] = useState(false)
+
   const handleClick = () => {
     setDisplay(!display)
     props.getActivities(props.itinerary._id)
+    props.getAllComments()
   }
+
+  const comment = useRef()
+
+  function handleComment(e) {
+    e.preventDefault()
+    props.postComments(
+      props.itinerary._id,
+      props.user._id,
+      comment.current.value
+    )
+    comment.current.value = ""
+  }
+
+   function deleteComment(id) {
+    props.deleteComment(id),
+    getComments()
+   }
 
   useEffect(() => {
     !props.user && setliked(false)
@@ -56,7 +76,7 @@ function Itinerary(props) {
     <div key={props.index} className="itinerariesAll">
       {props.itinerary && (
         <Card className="card-iti">
-          <Card.Header>{props.itinerary.title}</Card.Header>
+          <Card.Header className="title-cardIti">{props.itinerary.title}</Card.Header>
           <Card.Body className="conteinerCardBody">
             <div className="card-iti-content">
               <div className="user">
@@ -72,12 +92,13 @@ function Itinerary(props) {
                 <div className="itinerary-text">
                   <span> Duration : {props.itinerary.duration}hs</span>
                 </div>
-                <p>
-                  {likes}</p><p onClick={() => handleLike()}>
-                  {liked ? <img className="heartlike" src="../assets/like-full.png"></img> :
-                   <img className="heartlike" src="../assets/like-empty.png"></img>}
+                <div className="likes">
+                  <p>{likes}</p><p onClick={() => handleLike()}>
+                    {liked ? <img className="heartlike" src="../assets/like-full.png"></img> :
+                      <img className="heartlike" src="../assets/like-empty.png"></img>}
 
-                </p>
+                  </p>
+                </div>
 
                 <div className="macaGrax">
                   <p>Price: </p>
@@ -106,12 +127,43 @@ function Itinerary(props) {
                           className="activityPic"
                           style={{ backgroundImage: `url("${activity.image}")` }}
                         >
-                          <h5>{activity.title}</h5>
+                          <h5 className="title-act">{activity.title}</h5>
                         </div>
                       </div>
                     )
                   }
                 })}
+            </div>
+            <div>
+              {display && (props.comments && props.comments.map(comment => {
+                if (comment.itinerary === props.itinerary._id) {
+                  return (
+                    <div>
+                      <Comments comment={comment} itinerary={props.itinerary._id} user={props.user} />
+
+                    </div>
+                  )
+                }
+              }
+              ))
+              }
+              {display && (
+                <div className="comment-bg">
+                  {<form onSubmit={handleComment}>
+                    <div className="leaveComment">
+                    <input
+                      ref={comment}
+                      type="text"
+                      className="comment-input"
+                      placeholder="Leave your comment here"
+                    />
+                    <div className='submitBtn'>
+                      <input className='btn-submit' type="submit" value="Submit" />
+                    </div>
+                    </div>
+                  </form>}
+                </div>
+              )}
             </div>
             <button onClick={handleClick} className="btn-warning">
               {" "}
@@ -127,6 +179,15 @@ function Itinerary(props) {
 const mapDispatchToProps = {
   getActivities: activitiesActions.getActivities,
   likes: itinerariesActions.likes,
+  getAllComments: itinerariesActions.getAllComments,
+  postComments: itinerariesActions.postComments,
+  deleteComment: itinerariesActions.deleteComment
 }
 
-export default connect(null, mapDispatchToProps)(Itinerary)
+const mapStateToProps = (state) => {
+  return {
+    comments: state.itinerariesReducer.comments
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Itinerary)
