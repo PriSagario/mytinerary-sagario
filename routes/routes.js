@@ -61,11 +61,11 @@ Router.route('/comments/:itineraryId')
 .post(validatorComment ,itineraryController.postComment)
 
 Router.route('/comments')
-  .get(itineraryController.getAllComments)
+.get(itineraryController.getAllComments)
+.put(passport.authenticate("jwt", {session: false}), itineraryController.editComment) 
 
-Router.route('/comments/:id')
-  .put(itineraryController.editComment)
-  .delete(itineraryController.deleteComment)
+Router.route('/comments/:commentId')
+.delete(passport.authenticate("jwt", {session: false}), itineraryController.deleteComment)
 
 
 module.exports = Router

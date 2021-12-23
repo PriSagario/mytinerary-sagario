@@ -77,29 +77,30 @@ const itineraryController = {
   },
   editComment: async (req, res) => {
     try {
-      let commentEdit = await Comment.findOneAndUpdate({ _id: req.body.commentId, user: req.user._id }, 
-        {message: req.body.message}, {new: true});
-      res.json({
-        success: true,
-        response: commentEdit
-      });
+        let newComment = await Comment.findOneAndUpdate(
+            {_id: req.body.commentId , user:req.user._id}, {message: req.body.message}
+        );
+        res.json({
+            success: true,
+            response: newComment,
+        });
     } catch (e) {
+        res.json({ success: false, error: e });
+        console.error(e);
+    }
+},
+deleteComment: async (req, res) => {
+  try {
+      let comment = await Comment.findOneAndDelete({ _id: req.params.commentId});
+      res.json({
+          success: true,
+          response: comment,
+      });
+  } catch (e) {
       res.json({ success: false, error: e });
       console.error(e);
-    }
-  },
-  deleteComment: async (req, res) => {
-    try {
-      await Comment.findOneAndDelete({ _id: req.body.id });
-      res.json({
-        success: true,
-        response: "Deleted comment with id" + req.body.id,
-      });
-    } catch (e) {
-      res.json({ success: false, error: e });
-      console.error(e);
-    }
-  },
-};
+  }
+}
+}
 
 module.exports = itineraryController;

@@ -35,11 +35,6 @@ function Itinerary(props) {
     comment.current.value = ""
   }
 
-   function deleteComment(id) {
-    props.deleteComment(id),
-    getComments()
-   }
-
   useEffect(() => {
     !props.user && setliked(false)
     if (props.user) {
@@ -181,7 +176,6 @@ const mapDispatchToProps = {
   likes: itinerariesActions.likes,
   getAllComments: itinerariesActions.getAllComments,
   postComments: itinerariesActions.postComments,
-  deleteComment: itinerariesActions.deleteComment
 }
 
 const mapStateToProps = (state) => {

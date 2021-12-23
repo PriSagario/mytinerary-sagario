@@ -172,6 +172,12 @@ html * {
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    width: auto;
+}
+
+.editAndDelete{
+    display: flex;
+    flex-direction: row;
 }
 
  .title-iti{
