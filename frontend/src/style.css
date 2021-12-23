@@ -782,7 +782,7 @@ background-color: rgb(255, 235, 122);
     width: 100%;
 }
 
-.label.SI{
+.label-SI{
     display: flex;
     box-sizing: border-box;
     border-radius: 2rem;
@@ -885,6 +885,7 @@ background-color: rgb(255, 235, 122);
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 1rem;
 }
 
 .signInBtn{

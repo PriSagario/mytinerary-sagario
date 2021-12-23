@@ -42,8 +42,8 @@ function SignInP(props) {
                     <h3 className='subtitle'>Sign in MyTinerary</h3>
                     <form onSubmit={handleSignInP}>
                         <div className='inputsSignIn'>
-                            <input type="text" className='label.SI' placeholder=' Email' ref={email} required={true} />
-                            <input type="password" className='label.SI' placeholder=' Password' ref={password} required={true} />
+                            <input type="text" className='label-SI' placeholder=' Email' ref={email} required={true} />
+                            <input type="password" className='label-SI' placeholder=' Password' ref={password} required={true} />
                             <input type="submit" className='linkSignIn' value="Sign in" />
                         </div>
                     </form>
