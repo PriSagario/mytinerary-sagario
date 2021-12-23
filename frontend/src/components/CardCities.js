@@ -28,7 +28,8 @@ function CardCities(props) {
                         return (
                             <Link to={`/city/${ciudad._id}`} className="linkCity">
                                 <div className="card-imagen">
-                                    <img className="imagen" key={ciudad._id} alt={ciudad.name} src={ciudad.src} />
+                                    <img className="imagen" key={ciudad._id} alt={ciudad.name} 
+                                    src={ciudad.src} />
                                     <p className="nameCity">{ciudad.name}</p>
                                 </div>
                             </Link>

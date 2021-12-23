@@ -1,9 +1,9 @@
-import {Link, useParams} from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import citiesActions from "../redux/actions/citiesActions"
 import itinerariesAction from "../redux/actions/itinerariesActions"
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 import Itinerary from "./Itinerary"
-import {useEffect} from "react"
+import { useEffect } from "react"
 import NavBarP from "./Navbar"
 
 function CardCity(props) {
@@ -15,7 +15,6 @@ function CardCity(props) {
     props.getItinerariesById(params.id)
   }, [props.cities])
 
-  console.log(props)
   const backgroundCity = {
     backgroundImage: "url(" + `.${props.city.src}` + ")",
   }
@@ -24,35 +23,37 @@ function CardCity(props) {
     <div>
       <div className="navCityBg" style={backgroundCity}>
         <NavBarP />
+        <h1 className="countryTitle">
+          {props.city.name} {props.city.country}
+        </h1>
       </div>
       <div className="mainCity ">
-        <div className="cityImg"></div>
-        <div className="cityConteiner">
-          <h1 className="countryTitle">
-            {props.city.name}, {props.city.country}
-          </h1>
-          <p className="descriptionCity">{props.city.description}</p>
+        <div className="cityImg">
         </div>
-        <h1 className="itineraries-title">ITINERARIES</h1>
-        {props.city ? (
-          props.itineraries[0] ? (
-            props.itineraries.map((itinerary, index) => (
-              <Itinerary
-                itinerary={itinerary}
-                index={index}
-                user={props.user}
-                cityId={params.id}
-                activities={props.activities}
-              />
-            ))
+        <div className="cityConteiner">
+        </div>
+        <div className="conteinerItineraries">
+          <h1 className="itineraries-title">ITINERARIES</h1>
+          {props.city ? (
+            props.itineraries[0] ? (
+              props.itineraries.map((itinerary, index) => (
+                <Itinerary
+                  itinerary={itinerary}
+                  index={index}
+                  user={props.user}
+                  cityId={params.id}
+                  activities={props.activities}
+                />
+              ))
+            ) : (
+              <h2 className="noItiMess">
+                Loading...
+              </h2>
+            )
           ) : (
-            <h2 className="noItiMess">
-              There are not itineraries for this city yet...
-            </h2>
-          )
-        ) : (
-          ""
-        )}
+            <h1>There are no itineraries for this city yet...</h1>
+          )}
+        </div>
         <div className="buttons-back">
           <Link to="/cities" className="backCities">
             {" "}

@@ -7,11 +7,11 @@ html * {
 
   .bg-cities{
     background-image: url(./assets/bg-cities.jpg);
-    height: 70vh;
+    height: 65vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position:bottom;
+    background-position: bottom;
 }
 
 .backgroundCities{
@@ -25,19 +25,19 @@ html * {
   }
 
  .imagen{
-     height: 25vh;
-     width: 25vw;
+     height: 29vh;
+     width: 27vw;
      box-sizing: border-box;
-     border-radius: 10px;
+     border-radius: 1rem;
      object-fit: cover;
      display: flex;
-     justify-content: center;
-     align-items:baseline;     
+     justify-content: center;  
+     align-content: top;  
  }
 
  .card-imagen{
      height: 35vh;
-     width: 25vw;
+     width: 27vw;
      margin: 2rem;
      background-color: rgba(245, 179, 13, 0.795);
     box-sizing: border-box;
@@ -52,12 +52,23 @@ html * {
      display: flex;
      align-items: center;
      justify-content:center;
-     background-color: rgba(255, 166, 0, 0.555);
      flex-direction: column;
      width: 80%;
      margin-left: 10%;
      margin-right: 10%;
      
+ }
+
+ .conteinerItineraries{
+     display: flex;
+     flex-direction: column;
+     box-sizing: border-box;
+     border-radius: 2rem;
+     background-color: rgba(255, 166, 0, 0.596);
+     width: 70%;
+     justify-content: center;
+     align-items: center;
+     margin-left: 15%;
  }
 
  .macaGrax{
@@ -72,7 +83,7 @@ html * {
  }
 
  .card-iti{
-     width: 70%;
+     width: 100%;
      box-sizing: border-box;
      border-radius: 2rem;
      background-color: rgb(250, 224, 175);
@@ -92,8 +103,8 @@ html * {
  }
 
  .image-card-iti{
- width: 13vw;
- height: 25vh;
+ width: 150px;
+ height: 150px;
  object-fit: cover;
  margin-right: 1.5rem;
  margin-left: 0;
@@ -157,9 +168,7 @@ html * {
     background-color: rgba(128, 128, 128, 0.658);
     box-sizing: border-box;
     border-radius: 5px;
-    width: 80%;
-    height: 5vh;
-    
+    align-self: flex-start;
 }
 
 .buttonViewMore{
@@ -173,6 +182,7 @@ html * {
     align-items: center;
     flex-direction: row;
     width: auto;
+    margin-bottom: 2%;
 }
 
 .editAndDelete{
@@ -195,14 +205,14 @@ html * {
      margin: 2rem;
      color:black;
     box-sizing: border-box;
-    border: solid 2px rgb(243, 106, 15);
+    border: solid 2px rgb(255, 138, 60);
     border-radius: 10px;
     padding: 10px;
     background-color: rgba(255, 173, 21, 0.507);
  }
 
  .backCities:hover{
-     background-color: rgb(255, 94, 0);
+     background-color: rgb(255, 202, 55);
  }
 
  .textErr{
@@ -253,7 +263,7 @@ margin-left: 25%;
 
  .navCityBg{
     width: 100%;
-    height: 60vh;
+    height: 40vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -267,11 +277,12 @@ margin-left: 25%;
 }
 
  .citiesTitle{
-     font-size: 5vw;
+     font-size: 4vw;
     color: white;
     display: flex;
-    justify-content: center;
+    justify-content:flex-start;
     align-content: center;
+    margin-left: 5%;
     
  }
 
@@ -281,11 +292,69 @@ margin-left: 25%;
      width: 4vw;
      height: 8vh;
      object-fit: cover;
+     margin: 1% 2%;
+ }
+
+ .commentText{
+     margin-left: 2%;
+ }
+
+ .comTitle{
+     color: white;
+     text-shadow:0px 2px 2px rgba(70, 69, 69, 0.733) ;
+     display: flex;
+     justify-content: center;
+ }
+
+ .comActiv{
+    color: white;
+    text-shadow:0px 2px 2px rgba(70, 69, 69, 0.733) ;
+    display: flex;
+    justify-content: center;
+ }
+
+ .btnDelete{
+     margin: 2%;
+     display: flex;
+     align-content: center;
+ }
+
+ .change-input{
+     border-radius: 1rem;
+     border: 1px solid black;
+     margin-left: 1%;
+     margin-bottom: 1%;
+ }
+
+ .editBtn{
+     box-sizing: border-box;
+     border-radius: .5rem;
+     background-color: rgb(255, 218, 56);
+     font-size: small;
+     width: 5rem;
+     display: flex;
+     justify-content: center;
+     max-height: 1.8rem;
+     align-content: center;
+     
+ }
+
+ .countryTitle{
+     font-size: xxx-large;
+     display: flex;
+     justify-content:left;
+     color: white;
+     margin-left: 5%;
+     background-color: rgba(73, 73, 73, 0.644);
+     box-sizing: border-box;
+     border-radius: 2rem;
+     width: fit-content;
+     padding: 1%;
  }
 
  .comment-input{
      width: 70%;
-     height: 8vh;
+     height: 10vh;
      margin: 2%;
      box-sizing: border-box;
      border-radius: 2rem;
@@ -300,6 +369,24 @@ margin-left: 25%;
      display: flex;
      flex-direction: row;
      padding: 2%;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .btn-submit{
+     box-sizing: border-box;
+     border-radius: .5rem;
+     color: black;
+     padding: .2rem;
+     font-size: small;
+     background-color: rgb(253, 223, 49);
+     border: none;
+     width: 5rem;
+ }
+
+ .allComments{
+     display: flex;
+     justify-content: space-around;
      align-items: center;
  }
 
@@ -316,13 +403,8 @@ margin-left: 25%;
  }
 
  .itineraries-title{
-     display: flex;
-     justify-content: center;
-     align-content: center;
-     background-color: rgba(255, 166, 0, 0.596);
-     width: 80%;
-     margin-left: 10%;
-     margin-right: 10%;
+    justify-content: center;
+    align-content: center;
      padding-top: 1rem;
  }
 
@@ -336,7 +418,8 @@ margin-left: 25%;
  .nameCity{
      font-size: 2vw;
      text-decoration: none;
-     color:black;
+     color:white;
+     text-shadow:0px 2px 2px rgba(70, 69, 69, 0.733) ;
 
  }
 
@@ -352,9 +435,8 @@ margin-left: 25%;
 }
 
 .pageCities{
-    background: rgb(250,255,163);
-background: linear-gradient(90deg, rgba(250,255,163,1) 0%, rgba(244,199,132,1) 29%, rgba(255,187,98,1) 59%, rgba(252,195,69,1) 100%);
-
+   background-color: rgb(253, 231, 189);
+min-height: 55vh;
 }
 
 .pagePad{
@@ -531,9 +613,9 @@ background-color: rgb(255, 235, 122);
     padding: 5px;
     display: flex;
     width: 40vw;
-    border: 1px solid  rgba(245, 179, 13, 0.795);
+    border: 2px solid black;
     box-sizing: border-box;
-    border-radius: 4px;
+    border-radius: 2rem;
 }
 
 .footer{
@@ -556,28 +638,46 @@ background-color: rgb(255, 235, 122);
     flex-direction: column;
 }
 
-.cardSign{
-    background-color: rgba(23, 255, 120, 0.616);
-   height: 70%;
+.bg-nav-sign{
+    background-color: rgba(4, 58, 4, 0.87);
+}
+
+.backgroundSignIn{
+    background-image: url(./assets/palm.jpg);
+    height: 90vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-content: center;
-    padding: 2rem;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cardSign{
+    background-color: rgba(6, 66, 11, 0.836);
+    height: 70%;
+    display: flex;
     color: white;
     font-size: 1.5vw ;
     box-sizing: border-box;
     border-radius: 10px;
     border: 5px solid white;
-    box-shadow: white;
-    margin: 1rem;
+    padding: .3rem;
+}
+
+.btn-warning{
+    border-radius: .6rem;
+    border: none;
+    font-size: large;
+    width: 6rem;
 }
 
 .cardSignUp{
-    background-color: rgba(23, 255, 120, 0.616);
-   height: 100%;
+    background-color: rgba(6, 66, 11, 0.836);
+    max-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-content: center;
     padding: 2rem;
     color: white;
     font-size: 1.5vw ;
@@ -586,6 +686,7 @@ background-color: rgb(255, 235, 122);
     border: 5px solid white;
     box-shadow: white;
     margin: 1rem;
+    justify-content: center;
 }
 
 
@@ -594,11 +695,23 @@ background-color: rgb(255, 235, 122);
     box-sizing: border-box;
     border: white solid 2px;
     border-radius: 5px;
+    padding: 3px;
 }
 
 .backToSignUp{
     font-size: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
    
+}
+
+.titlesSU{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .linkSignIn{
@@ -607,14 +720,29 @@ background-color: rgb(255, 235, 122);
     box-sizing: border-box;
     border: white 2px solid;
     background-color: rgba(255, 255, 255, 0.253);
+    display: flex;
+    justify-content: center;
+    border-radius: .5rem;
+    padding: 1%;
+    width: 8rem;
+    font-size: large;
+    
+}
+
+.googleSI{
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .inputsSignIn{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     font-size: large;
+    width: fit-content;
 }
 
 .propsSignIN{
@@ -626,25 +754,40 @@ background-color: rgb(255, 235, 122);
 .btnsBottom{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    font-size: x-large;
+    align-items: center;
+    
 }
 
 .bodyFormSU{
     display: flex;
     flex-direction: column;
-    justify-content:center;
-    align-items: center;
+    width: 100%;
    
 }
 .onlyInputs{
     font-size: large;
-    height: 70%;
+    height: 60%;
+    width: 100%;
 }
 
 .labelSU{
     display: flex;
     justify-content: space-around;
+    box-sizing: border-box;
+    border-radius: .8rem;
+    border: 1px black solid;
+    height: 2rem;
+    width: 100%;
+}
+
+.label.SI{
+    display: flex;
+    box-sizing: border-box;
+    border-radius: 2rem;
+    border: 1px black solid;
+    height: 2rem;
+    width: 100%;
+    margin: 3% !important;
 }
 
 .labelCountry{
@@ -652,16 +795,47 @@ background-color: rgb(255, 235, 122);
     justify-content: space-around;
 }
 
+.linkSignIn:hover{
+    text-decoration: none;
+    color: white;
+}
+
 .buttonsSignUp{
     display: flex;
     flex-direction: column;
-    justify-content:space-evenly;
-    align-items: center;
+    justify-content: space-around;
+    align-items:center;
+    margin: 1%;
     font-size: large;
     }
 
 .signGoogle{
     margin-top: 1rem;
+}
+
+.googleBtn{
+    margin-top: 3%;
+}
+
+.namesSU{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 3%;
+}
+
+.dataMail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 3%;
+}
+
+.adicionalInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 3%;
 }
 
 .white-link{
@@ -687,7 +861,7 @@ background-color: rgb(255, 235, 122);
     flex-direction: row;
     object-fit: cover;
     background-position: center;
-    margin: 0.1rem;
+    margin: 0.5rem 0rem;
 }
 
 .heartlike{
@@ -707,10 +881,8 @@ background-color: rgb(255, 235, 122);
 
 .contentSignIn{
     display: flex;
-    justify-content:space-between;
-    align-items: center;
     flex-direction: column;
-    margin: 1rem;
+    align-items: center;
 }
 
 .signInBtn{
@@ -736,6 +908,10 @@ background-color: rgb(255, 235, 122);
     .imgOnly{
         width: 100%;
         height: 50vh;
+        }
+    .imgComment{
+      width: 4vw;
+      height: 6vh;
         }
     }
 
@@ -764,6 +940,10 @@ background-color: rgb(255, 235, 122);
        .nameCity{
                 font-size: 3vw;
         }
+        .imgComment{
+            width: 6vw;
+            height: 7vh;
+              }
     }
 
     @media (max-width:450px){
@@ -776,9 +956,20 @@ background-color: rgb(255, 235, 122);
         .imgOnly{
             width: 100%;
             }
+        .imgComment{
+            width: 80vw;
+            height: 8vh;
+              }
+        .conteinerComments{
+            width: 80%;
+        }
+        .commentText{
+            display: flex;
+            justify-content:center;
+        }
         .image-card-iti{
-            width: 30vw;
-            height: 5vh;
+            width: 80px !important;
+            height: 80px !important;
         }
 
     }
@@ -790,13 +981,10 @@ background-color: rgb(255, 235, 122);
         .imgOnly{
         width: 100%;
         }
-        .card-iti-content{
+
+        .hashtags{
             display: flex;
             flex-direction: column;
-        }
-        .image-card-iti{
-            width: 18vw;
-            height: 20vh;
         }
         }
 
@@ -817,12 +1005,22 @@ background-color: rgb(255, 235, 122);
         .imgOnly{
         width: 100%;
         }
-        
-    }
-
-    @media (max-width:650px){
+        .imgComment{
+            width: 6vw;
+            height: 7vh;
+              }
         .image-card-iti{
-            width: 20vw;
-            height: 18vh;
+            width: 100px;
+            height: 100px;
         }
+        .title-cardIti{
+            font-size: small;
+        }
+        .name-only{
+            font-size: small;
+        }
+        .body-content{
+            font-size:small;
+        }
+        
     }

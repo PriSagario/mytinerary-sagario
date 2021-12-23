@@ -18,9 +18,9 @@ function SignInP(props) {
     }
 
     localStorage.getItem("token") && !props.token && props.tokenDale()
-    
-    props.token && navigate("/", {replace: true})
-    
+
+    props.token && navigate("/", { replace: true })
+
 
     const email = useRef()
     const password = useRef()
@@ -35,32 +35,34 @@ function SignInP(props) {
         password.current.value = ""
     }
     return (
-        <div className="backgroundSign">
+        <div className="backgroundSignIn">
             <div className="cardSign">
                 <div className='contentSignIn'>
                     <h1 className='titleSignIn'>Your dream destination is about to begin</h1>
                     <h3 className='subtitle'>Sign in MyTinerary</h3>
                     <form onSubmit={handleSignInP}>
                         <div className='inputsSignIn'>
-                            <input type="text" className='signInBtn' placeholder='Email' ref={email} required={true }/>
-                            <input type="password" className='signInBtn' placeholder='Password' ref={password} required={true } />
-                            <input type="submit" className='btn-warning p-2 fs-9 fw-normal m-1' value="Sign in" />
+                            <input type="text" className='label.SI' placeholder=' Email' ref={email} required={true} />
+                            <input type="password" className='label.SI' placeholder=' Password' ref={password} required={true} />
+                            <input type="submit" className='linkSignIn' value="Sign in" />
                         </div>
                     </form>
+                    <p>or</p>
                     <div className='btnsBottom'>
-                    <GoogleLogin
-                        clientId="441570016693-8sblie0ro7jmdcrk5lb0nphcl4ug15kl.apps.googleusercontent.com"
-                        buttonText="Sign In with Google"
-                        onSuccess={responseGoogle}
-                        onFailure={responseGoogle}
-                        cookiePolicy={"single_host_origin"}
-                    />
-                    <div className='backToSignUp'>
-                        <p>You don't have an account yet?</p>
-                        <Link to="/auth/signUp" className='linkSignIn'>
-                            Sign up
-                        </Link>
-                    </div>
+                        <GoogleLogin
+                            className='googleSI'
+                            clientId="441570016693-8sblie0ro7jmdcrk5lb0nphcl4ug15kl.apps.googleusercontent.com"
+                            buttonText="Sign In with Google"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={"single_host_origin"}
+                        />
+                        <div className='backToSignUp'>
+                            <p>You don't have an account yet?</p>
+                            <Link to="/auth/signUp" className='linkSignIn'>
+                                Sign up
+                            </Link>
+                        </div>
                     </div>
 
                 </div>

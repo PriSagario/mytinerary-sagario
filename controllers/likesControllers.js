@@ -2,7 +2,6 @@ const Itinerary = require("../models/Itinerary")
 const likesController = {
     like: async (req, res) => {
         const id = req.body.itineraryId
-        console.log(req.body)
         const itinerary = await Itinerary.findOne({ _id: id }).lean()
         const likeExist = itinerary.likes.some((like) => like === req.body.userId)
         const action = likeExist ? "$pull": "$push"

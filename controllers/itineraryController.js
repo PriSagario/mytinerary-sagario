@@ -38,11 +38,11 @@ const itineraryController = {
 
     modifyItinerary: async(req,res) => {
       try{
-          actualizado = await Itinerary.findOneAndUpdate({_id:req.params.id}, {...req.body}, {new:true})
+        let actualizado = await Itinerary.findOneAndUpdate({_id:req.params.id}, {...req.body}, {new:true})
       }catch(error){
           console.log(error)
       }
-      res.json({success:actualizado ? true : false})
+      res.json({success: actualizado ? true : false})
   },
   getAllComments:async (req, res) => {
     Comment.find()

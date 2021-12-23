@@ -110,7 +110,10 @@ function Itinerary(props) {
                 <div className="tag"> #{hash}</div>
               ))}
             </div>
-
+            <div className="bgActiv">
+            {display && (
+              <h2 className="comActiv">Activities</h2>
+            )}
             <div className="buttonViewMore">
               {display &&
                 props.activities[0] &&
@@ -129,7 +132,11 @@ function Itinerary(props) {
                   }
                 })}
             </div>
-            <div>
+            </div>
+            <div className="comment-bg" >
+            {display && (
+              <h2 className="comTitle">Comments</h2>
+            )}
               {display && (props.comments && props.comments.map(comment => {
                 if (comment.itinerary === props.itinerary._id) {
                   return (
@@ -143,17 +150,17 @@ function Itinerary(props) {
               ))
               }
               {display && (
-                <div className="comment-bg">
+                <div >
                   {<form onSubmit={handleComment}>
                     <div className="leaveComment">
                     <input
                       ref={comment}
                       type="text"
                       className="comment-input"
-                      placeholder="Leave your comment here"
+                      placeholder="    Leave your comment here"
                     />
                     <div className='submitBtn'>
-                      <input className='btn-submit' type="submit" value="Submit" />
+                      <input className='btn-submit' type="submit" value="Send" />
                     </div>
                     </div>
                   </form>}
