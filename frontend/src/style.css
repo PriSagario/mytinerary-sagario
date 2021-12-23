@@ -331,10 +331,12 @@ margin-left: 25%;
      border-radius: .5rem;
      background-color: rgb(255, 218, 56);
      font-size: small;
-     width: 5rem;
+     padding-top: .2rem;
+     width: 2rem;
      display: flex;
      justify-content: center;
-     max-height: 1.8rem;
+     min-height: 1.5rem;
+     max-height: 1.5rem;
      align-content: center;
      
  }
@@ -671,7 +673,7 @@ background-color: rgb(255, 235, 122);
     border-radius: .6rem;
     border: none;
     font-size: large;
-    width: 6rem;
+    width: 100%;
 }
 
 .cardSignUp{

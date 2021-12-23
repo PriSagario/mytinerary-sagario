@@ -2,12 +2,13 @@ import itinerariesActions from "../redux/actions/itinerariesActions"
 import { useRef, useState } from "react"
 import { connect } from "react-redux"
 import swal from 'sweetalert'
-import {BsTrash} from "react-icons/bs"
+import {BsTrash, BsPencilFill} from "react-icons/bs"
 
 function Comments(props) {
     const editComment = useRef()
     const [edit, setEdit] = useState(false)
     const trash = < BsTrash />
+    const editPencil = < BsPencilFill />
 
     function handleEditComment(e) {
         e.preventDefault()
@@ -49,7 +50,7 @@ function Comments(props) {
             )}
             {props.comment.user && props.comment.user._id === props.user._id &&
                 (<div className="editAndDelete">
-                    <p className="editBtn" onClick={() => { setEdit(!edit) }}>Edit/Delete </p>
+                    <p className="editBtn" onClick={() => { setEdit(!edit) }}>{editPencil} </p>
                     {edit && (
                         <>
                             <form onSubmit={handleEditComment}>
