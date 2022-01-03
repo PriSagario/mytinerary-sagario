@@ -38,7 +38,6 @@ function Itinerary(props) {
   useEffect(() => {
     !props.user && setliked(false)
     if (props.user) {
-
       setliked(props.itinerary.likes.some((id) => id === props.user._id))
     }
   }, [props.user])

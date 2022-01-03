@@ -14,7 +14,9 @@ const itineraryController = {
     },
 
     returnItinerariesByCity: (req, res) => {
+      console.log(req.params)
       Itinerary.find({city: {_id: req.params.city}})
+          .populate("city")
           .then((response) => {
               res.json({response})
           })

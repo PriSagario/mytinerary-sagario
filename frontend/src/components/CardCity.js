@@ -41,7 +41,7 @@ function CardCity(props) {
                   itinerary={itinerary}
                   index={index}
                   user={props.user}
-                  cityId={params.id}
+                  params={params.id}
                   activities={props.activities}
                 />
               ))
